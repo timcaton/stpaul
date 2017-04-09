@@ -346,12 +346,12 @@
                         <td>{{m.receivedBy}}</td>
                         <td>{{m.memberInfo}}</td>
                         <td>
-                            <button type="button" ng-click="ctrl.editMember(u.id)" class="btn btn-success custom-width">
+                            <button type="button" ng-click="ctrl.editMember(m.id)" class="btn btn-success custom-width">
                                 Edit
                             </button>
                         </td>
                         <td>
-                            <button type="button" ng-click="ctrl.removeMember(u.id)"
+                            <button type="button" ng-click="ctrl.removeMember(m.id)"
                                     class="btn btn-danger custom-width">Remove
                             </button>
                         </td>

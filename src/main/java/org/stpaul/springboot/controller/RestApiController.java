@@ -86,7 +86,6 @@ public class RestApiController {
 					HttpStatus.NOT_FOUND);
 		}
 
-		currentMember.setId(member.getId());
 		currentMember.setName(member.getName());
 		currentMember.setBaptismId(member.getBaptismId());
 		currentMember.setMarriageId(member.getMarriageId());
