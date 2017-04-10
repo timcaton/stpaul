@@ -16,5 +16,7 @@
         <script src="js/app/app.js"></script>
         <script src="js/app/MemberService.js"></script>
         <script src="js/app/MemberController.js"></script>
+        <script src="js/app/BapService.js"></script>
+        <script src="js/app/BaptismController.js"></script>
     </body>
 </html>

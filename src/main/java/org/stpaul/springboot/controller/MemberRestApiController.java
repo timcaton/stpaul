@@ -21,9 +21,9 @@ import org.stpaul.springboot.util.CustomErrorType;
 
 @RestController
 @RequestMapping("/api")
-public class RestApiController {
+public class MemberRestApiController {
 
-	public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
+	public static final Logger logger = LoggerFactory.getLogger(MemberRestApiController.class);
 
 	@Autowired
 	MemberService memberService; //Service which will do all data retrieval/manipulation work
@@ -142,3 +142,4 @@ public class RestApiController {
 	}
 
 }
+
