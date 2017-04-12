@@ -20,9 +20,7 @@ public class BaptismServiceImpl implements BaptismService{
         return baptismRepository.findOne(id);
     }
 
-    public Baptism findByName(String name) {
-        return baptismRepository.findByName(name);
-    }
+    public Baptism findByName(String name) {return baptismRepository.findByName(name);}
 
     public void saveBaptism(Baptism baptism) {
         baptismRepository.save(baptism);

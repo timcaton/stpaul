@@ -20,5 +20,9 @@
         <script src="js/app/BaptismController.js"></script>
         <script src="js/app/HouseholdService.js"></script>
         <script src="js/app/HouseholdController.js"></script>
+        <script src="js/app/ConfirmationService.js"></script>
+        <script src="js/app/ConfirmationController.js"></script>
+        <script src="js/app/FuneralService.js"></script>
+        <script src="js/app/FuneralController.js"></script>
     </body>
 </html>

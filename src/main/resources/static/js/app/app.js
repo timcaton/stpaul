@@ -4,7 +4,9 @@ app.constant('urls', {
     BASE: 'http://localhost:8080/SpringBootCRUDApp',
     MEMBER_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/member/',
     BAPTISM_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/baptism/',
-    HOUSEHOLD_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/household/'
+    HOUSEHOLD_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/household/',
+    CONFIRMATION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/confirmation/',
+    FUNERAL_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/funeral/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -49,6 +51,32 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     console.log('Load all households');
                     var deferred = $q.defer();
                     HouseholdService.loadAllHouseholds().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+        }).state('confirmation', {
+            url: '/confirmation',
+            templateUrl: 'partials/confirmation',
+            controller:'ConfirmationController',
+            controllerAs:'ctrl',
+            resolve: {
+                baptisms: function ($q, ConfirmationService) {
+                    console.log('Load all confirmations');
+                    var deferred = $q.defer();
+                    ConfirmationService.loadAllConfirmations().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+        }).state('funeral', {
+            url: '/funeral',
+            templateUrl: 'partials/funeral',
+            controller:'FuneralController',
+            controllerAs:'ctrl',
+            resolve: {
+                baptisms: function ($q, FuneralService) {
+                    console.log('Load all funerals');
+                    var deferred = $q.defer();
+                    FuneralService.loadAllFunerals().then(deferred.resolve, deferred.resolve);
                     return deferred.promise;
                 }
             }
