@@ -6,7 +6,8 @@ app.constant('urls', {
     BAPTISM_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/baptism/',
     HOUSEHOLD_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/household/',
     CONFIRMATION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/confirmation/',
-    FUNERAL_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/funeral/'
+    FUNERAL_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/funeral/',
+    MARRIAGE_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/marriage/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -77,6 +78,19 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     console.log('Load all funerals');
                     var deferred = $q.defer();
                     FuneralService.loadAllFunerals().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+        }).state('marriage', {
+            url: '/marriage',
+            templateUrl: 'partials/marriage',
+            controller:'MarriageController',
+            controllerAs:'ctrl',
+            resolve: {
+                baptisms: function ($q, MarriageService) {
+                    console.log('Load all marriages');
+                    var deferred = $q.defer();
+                    MarriageService.loadAllMarriages().then(deferred.resolve, deferred.resolve);
                     return deferred.promise;
                 }
             }

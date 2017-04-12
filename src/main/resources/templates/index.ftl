@@ -24,5 +24,7 @@
         <script src="js/app/ConfirmationController.js"></script>
         <script src="js/app/FuneralService.js"></script>
         <script src="js/app/FuneralController.js"></script>
+        <script src="js/app/MarriageService.js"></script>
+        <script src="js/app/MarriageController.js"></script>
     </body>
 </html>
