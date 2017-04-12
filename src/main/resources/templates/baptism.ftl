@@ -13,7 +13,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Church Member ID</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.memberId" id="memberId" class="form-control input-sm"
+                                <input type="text" ng-model="ctrl.baptism.memberId" ng-change="setMember()"  id="memberId" class="form-control input-sm"
                                        placeholder="Enter Church Member ID" required ng-minlength="1"/>
                             </div>
                         </div>
@@ -23,8 +23,9 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Church Member Name</label>
                             <div class="col-md-7">
-                                <input type="text"  ng-model="ctrl.baptism.memberName" id="memberName" class="form-control input-sm"
-                                       placeholder="getMemberName(memberId)" required ng-minlength="1"/>
+                                <p>{{member.name}}</p>
+                                <#--<input type="text"  ng-model="ctrl.baptism.memberName" id="memberName" class="form-control input-sm"-->
+                                       <#--placeholder="getMemberName(memberId)" required ng-minlength="1"/>-->
                             </div>
                         </div>
                     </div>

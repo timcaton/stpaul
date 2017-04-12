@@ -6,7 +6,7 @@ angular.module('crudApp').controller('BaptismController',
         var self = this;
         self.baptism = {};
         self.baptisms=[];
-        self.memberName = null;
+        $scope.member = {};
 
         self.submit = submit;
         self.getAllBaptisms = getAllBaptisms;
@@ -15,7 +15,7 @@ angular.module('crudApp').controller('BaptismController',
         self.removeBaptism = removeBaptism;
         self.editBaptism = editBaptism;
         self.reset = reset;
-        self.getMemberName = getMemberName;
+        self.setMember = setMember;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -24,11 +24,10 @@ angular.module('crudApp').controller('BaptismController',
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
 
-        function getMemberName(id) {
-            self.memberName = null;
-            var member = MemberService.getMember(id);
-            self.memberName = member.name;
-            return self.memberName;
+        function setMember() {
+            console.log("blah");
+            $scope.member = {};
+            $scope.member = MemberService.getMember(id);
         }
 
         function submit() {

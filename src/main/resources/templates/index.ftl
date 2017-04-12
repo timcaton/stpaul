@@ -18,5 +18,7 @@
         <script src="js/app/MemberController.js"></script>
         <script src="js/app/BapService.js"></script>
         <script src="js/app/BaptismController.js"></script>
+        <script src="js/app/HouseholdService.js"></script>
+        <script src="js/app/HouseholdController.js"></script>
     </body>
 </html>

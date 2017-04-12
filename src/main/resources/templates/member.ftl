@@ -13,7 +13,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Title</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.title" id="name" class="form-control input-sm"
+                                <input type="text" ng-model="ctrl.member.title" id="title" class="form-control input-sm"
                                        placeholder="Enter title Mr, Mrs, or Miss" required ng-minlength="2"/>
                             </div>
                         </div>
@@ -230,7 +230,7 @@
                             <label class="col-md-2 control-label" for="funeralId">Funeral ID</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.funeralId" id="funeralId"
-                                       class=" funeralId form-control input-sm" placeholder="Enter funeral ID." required
+                                       class="form-control input-sm" placeholder="Enter funeral ID." required
                                        ng-pattern="ctrl.onlyIntegers"/>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                             <label class="col-md-2 control-label" for="carrierDate">Carrier Date</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.carrierDate" id="carrierDate"
-                                       class="carrierDate form-control input-sm"
+                                       class="form-control input-sm"
                                        placeholder="Enter Carrier Date in mm/dd/yyyy format" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -263,7 +263,7 @@
                             <label class="col-md-2 control-label" for="memberInfo">Other Member Info</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.memberInfo" id="memberInfo"
-                                       class="memberInfo form-control input-sm" placeholder="Other Member Info"/>
+                                       class="form-control input-sm" placeholder="Other Member Info"/>
                             </div>
                         </div>
                     </div>
