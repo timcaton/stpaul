@@ -1,4 +1,4 @@
-<div class="generic-container">
+<div class="container">
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">Marriages</span></div>

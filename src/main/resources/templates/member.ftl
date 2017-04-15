@@ -1,4 +1,4 @@
-<div class="generic-container">
+<div class="container">
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">Member</span></div>
@@ -260,6 +260,76 @@
 
                     <div class="row">
                         <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="removedBy">Removed By</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.removedBy" id="removedBy"
+                                       class="form-control input-sm" placeholder="Enter Removed By"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="maritalStatus">Marital Status</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.maritalStatus" id="maritalStatus"
+                                       class="form-control input-sm" placeholder="Enter Marital Status"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="placeOfBirth">Place of Birth</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.placeOfBirth" id="placeOfBirth"
+                                       class="form-control input-sm" placeholder="Enter Place of Birth"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="phoneNumber">Phone Number</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.phoneNumber" id="phoneNumber"
+                                       class="form-control input-sm" placeholder="Enter Phone Number"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="numberOfChildren">Number Of Children</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.numberOfChildren" id="numberOfChildren"
+                                       class="form-control input-sm" placeholder="Enter Number of Children"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="childrenLiving">Children Living</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.childrenLiving" id="childrenLiving"
+                                       class="form-control input-sm" placeholder="Enter Children Living"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="childrenNames">Children Names</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.childrenNames" id="childrenNames"
+                                       class="form-control input-sm" placeholder="Enter Children Names"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="memberInfo">Other Member Info</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.memberInfo" id="memberInfo"
@@ -313,6 +383,13 @@
                         <th>FUNERAL ID</th>
                         <th>CARRIER DATE</th>
                         <th>RECEIVED BY</th>
+                        <th>REMOVED BY</th>
+                        <th>MARITAL STATUS</th>
+                        <th>PLACE OF BIRTH</th>
+                        <th>PHONE NUMBER</th>
+                        <th>NUMBER OF CHILDREN</th>
+                        <th>CHILDREN LIVING</th>
+                        <th>CHILDREN NAMES</th>
                         <th>MEMBER INFO</th>
                         <th width="100"></th>
                         <th width="100"></th>
@@ -344,6 +421,13 @@
                         <td>{{m.funeralId}}</td>
                         <td>{{m.carrierDate}}</td>
                         <td>{{m.receivedBy}}</td>
+                        <td>{{m.removedBy}}</td>
+                        <td>{{m.maritalStatus}}</td>
+                        <td>{{m.placeOfBirth}}</td>
+                        <td>{{m.phoneNumber}}</td>
+                        <td>{{m.numberOfChildren}}</td>
+                        <td>{{m.childrenLiving}}</td>
+                        <td>{{m.childrenNames}}</td>
                         <td>{{m.memberInfo}}</td>
                         <td>
                             <button type="button" ng-click="ctrl.editMember(m.id)" class="btn btn-success custom-width">

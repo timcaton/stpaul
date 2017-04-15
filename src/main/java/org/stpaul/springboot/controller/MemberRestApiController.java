@@ -110,6 +110,13 @@ public class MemberRestApiController {
 		currentMember.setEmail(member.getEmail());
 		currentMember.setStatus(member.getStatus());
 		currentMember.setReceivedBy(member.getReceivedBy());
+        currentMember.setRemovedBy(member.getRemovedBy());
+        currentMember.setMaritalStatus(member.getMaritalStatus());
+        currentMember.setPlaceOfBirth(member.getPlaceOfBirth());
+        currentMember.setPhoneNumber(member.getPhoneNumber());
+        currentMember.setNumberOfChildren(member.getNumberOfChildren());
+        currentMember.setChildrenLiving(member.getChildrenLiving());
+        currentMember.setChildrenNames(member.getChildrenNames());
 
 		memberService.updateMember(currentMember);
 		return new ResponseEntity<Member>(currentMember, HttpStatus.OK);

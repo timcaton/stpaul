@@ -85,6 +85,27 @@ public class Member implements Serializable{
 	@Column(name = "RECEIVED_BY")
 	private String receivedBy;
 
+    @Column(name = "REMOVED_BY")
+    private String removedBy;
+
+    @Column(name = "MARITAL_STATUS")
+    private String maritalStatus;
+
+    @Column(name = "PLACE_OF_BIRTH")
+    private String placeOfBirth;
+
+    @Column(name = "PHONE_NUMBER")
+    private String phoneNumber;
+
+    @Column(name = "NUMBER_OF_CHILDREN")
+    private Long numberOfChildren;
+
+    @Column(name = "CHILDREN_LIVING")
+    private Long childrenLiving;
+
+    @Column(name = "CHILDREN_NAMES")
+    private String childrenNames;
+
     public Long getId() {
         return id;
     }
@@ -285,8 +306,60 @@ public class Member implements Serializable{
         this.receivedBy = receivedBy;
     }
 
-    public Member() {
-        super();
+    public String getRemovedBy() {
+        return removedBy;
+    }
+
+    public void setRemovedBy(String removedBy) {
+        this.removedBy = removedBy;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public String getPlaceOfBirth() {
+        return placeOfBirth;
+    }
+
+    public void setPlaceOfBirth(String placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Long getNumberOfChildren() {
+        return numberOfChildren;
+    }
+
+    public void setNumberOfChildren(Long numberOfChildren) {
+        this.numberOfChildren = numberOfChildren;
+    }
+
+    public Long getChildrenLiving() {
+        return childrenLiving;
+    }
+
+    public void setChildrenLiving(Long childrenLiving) {
+        this.childrenLiving = childrenLiving;
+    }
+
+    public String getChildrenNames() {
+        return childrenNames;
+    }
+
+    public void setChildrenNames(String childrenNames) {
+        this.childrenNames = childrenNames;
     }
 
     @Override
@@ -296,8 +369,8 @@ public class Member implements Serializable{
 
         Member member = (Member) o;
 
-        if (!id.equals(member.id)) return false;
-        if (!name.equals(member.name)) return false;
+        if (id != null ? !id.equals(member.id) : member.id != null) return false;
+        if (name != null ? !name.equals(member.name) : member.name != null) return false;
         if (baptismId != null ? !baptismId.equals(member.baptismId) : member.baptismId != null) return false;
         if (marriageId != null ? !marriageId.equals(member.marriageId) : member.marriageId != null) return false;
         if (funeralId != null ? !funeralId.equals(member.funeralId) : member.funeralId != null) return false;
@@ -323,13 +396,24 @@ public class Member implements Serializable{
         if (carrierDate != null ? !carrierDate.equals(member.carrierDate) : member.carrierDate != null) return false;
         if (email != null ? !email.equals(member.email) : member.email != null) return false;
         if (status != null ? !status.equals(member.status) : member.status != null) return false;
-        return receivedBy != null ? receivedBy.equals(member.receivedBy) : member.receivedBy == null;
+        if (receivedBy != null ? !receivedBy.equals(member.receivedBy) : member.receivedBy != null) return false;
+        if (removedBy != null ? !removedBy.equals(member.removedBy) : member.removedBy != null) return false;
+        if (maritalStatus != null ? !maritalStatus.equals(member.maritalStatus) : member.maritalStatus != null)
+            return false;
+        if (placeOfBirth != null ? !placeOfBirth.equals(member.placeOfBirth) : member.placeOfBirth != null)
+            return false;
+        if (phoneNumber != null ? !phoneNumber.equals(member.phoneNumber) : member.phoneNumber != null) return false;
+        if (numberOfChildren != null ? !numberOfChildren.equals(member.numberOfChildren) : member.numberOfChildren != null)
+            return false;
+        if (childrenLiving != null ? !childrenLiving.equals(member.childrenLiving) : member.childrenLiving != null)
+            return false;
+        return childrenNames != null ? childrenNames.equals(member.childrenNames) : member.childrenNames == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (baptismId != null ? baptismId.hashCode() : 0);
         result = 31 * result + (marriageId != null ? marriageId.hashCode() : 0);
         result = 31 * result + (funeralId != null ? funeralId.hashCode() : 0);
@@ -353,6 +437,13 @@ public class Member implements Serializable{
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (receivedBy != null ? receivedBy.hashCode() : 0);
+        result = 31 * result + (removedBy != null ? removedBy.hashCode() : 0);
+        result = 31 * result + (maritalStatus != null ? maritalStatus.hashCode() : 0);
+        result = 31 * result + (placeOfBirth != null ? placeOfBirth.hashCode() : 0);
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (numberOfChildren != null ? numberOfChildren.hashCode() : 0);
+        result = 31 * result + (childrenLiving != null ? childrenLiving.hashCode() : 0);
+        result = 31 * result + (childrenNames != null ? childrenNames.hashCode() : 0);
         return result;
     }
 
@@ -384,6 +475,13 @@ public class Member implements Serializable{
                 ", email='" + email + '\'' +
                 ", status='" + status + '\'' +
                 ", receivedBy='" + receivedBy + '\'' +
+                ", removedBy='" + removedBy + '\'' +
+                ", maritalStatus='" + maritalStatus + '\'' +
+                ", placeOfBirth='" + placeOfBirth + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", numberOfChildren=" + numberOfChildren +
+                ", childrenLiving=" + childrenLiving +
+                ", childrenNames='" + childrenNames + '\'' +
                 '}';
     }
 }
