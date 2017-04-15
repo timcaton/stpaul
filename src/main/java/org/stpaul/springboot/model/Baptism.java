@@ -10,9 +10,6 @@ public class Baptism implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME")
-    private String name;
-
     @Column(name = "MEMBER_ID")
     private Long memberId;
 
@@ -46,14 +43,6 @@ public class Baptism implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Long getMemberId() {
@@ -136,7 +125,6 @@ public class Baptism implements Serializable {
         Baptism baptism = (Baptism) o;
 
         if (id != null ? !id.equals(baptism.id) : baptism.id != null) return false;
-        if (name != null ? !name.equals(baptism.name) : baptism.name != null) return false;
         if (memberId != null ? !memberId.equals(baptism.memberId) : baptism.memberId != null) return false;
         if (baptismDate != null ? !baptismDate.equals(baptism.baptismDate) : baptism.baptismDate != null) return false;
         if (baptismLocation != null ? !baptismLocation.equals(baptism.baptismLocation) : baptism.baptismLocation != null)
@@ -153,7 +141,6 @@ public class Baptism implements Serializable {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (memberId != null ? memberId.hashCode() : 0);
         result = 31 * result + (baptismDate != null ? baptismDate.hashCode() : 0);
         result = 31 * result + (baptismLocation != null ? baptismLocation.hashCode() : 0);
@@ -170,7 +157,6 @@ public class Baptism implements Serializable {
     public String toString() {
         return "Baptism{" +
                 "id=" + id +
-                ", name=" + name +
                 ", memberId=" + memberId +
                 ", baptismDate='" + baptismDate + '\'' +
                 ", baptismLocation='" + baptismLocation + '\'' +

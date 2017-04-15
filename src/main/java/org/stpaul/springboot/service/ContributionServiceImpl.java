@@ -44,7 +44,11 @@ public class ContributionServiceImpl implements ContributionService{
     }
 
     public boolean isContributionExist(Contribution contribution) {
-        return findById(contribution.getId()) != null;
+        Long id;
+        if(contribution.getGuestId() != null){
+            id = contribution.getGuestId();
+        } else{id = contribution.getMemberId();}
+        return findById(id) != null;
     }
 
 }

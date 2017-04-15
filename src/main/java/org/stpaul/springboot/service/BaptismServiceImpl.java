@@ -20,7 +20,8 @@ public class BaptismServiceImpl implements BaptismService{
         return baptismRepository.findOne(id);
     }
 
-    public Baptism findByName(String name) {return baptismRepository.findByName(name);}
+    @Override
+    public Baptism findByName(String name) {return null;}
 
     public void saveBaptism(Baptism baptism) {
         baptismRepository.save(baptism);
@@ -43,7 +44,7 @@ public class BaptismServiceImpl implements BaptismService{
     }
 
     public boolean isBaptismExist(Baptism baptism) {
-        return findByName(baptism.getName()) != null;
+        return findById(baptism.getMemberId()) != null;
     }
 
 }

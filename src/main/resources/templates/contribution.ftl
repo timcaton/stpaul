@@ -23,7 +23,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="guestId">Guest ID</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.contribution.guest" id="guestId" class="form-control input-sm"
+                                <input type="text" ng-model="ctrl.contribution.guestId" id="guestId" class="form-control input-sm"
                                        placeholder="Enter Guest ID" ng-minlength="1"/>
                             </div>
                         </div>

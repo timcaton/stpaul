@@ -2,6 +2,7 @@ package org.stpaul.springboot.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name="CONTRIBUTION")
@@ -11,10 +12,10 @@ public class Contribution implements Serializable {
     private Long id;
 
     @Column(name = "MEMBER_ID")
-    private String memberId;
+    private Long memberId;
 
     @Column(name = "GUEST_ID")
-    private String guestId;
+    private Long guestId;
 
     @Column(name = "PURPOSE")
     private String purpose;
@@ -26,7 +27,7 @@ public class Contribution implements Serializable {
     private String contributionDate;
 
     @Column(name = "AMOUNT")
-    private String amount;
+    private BigDecimal amount;
 
     public Long getId() {
         return id;
@@ -36,19 +37,19 @@ public class Contribution implements Serializable {
         this.id = id;
     }
 
-    public String getMemberId() {
+    public Long getMemberId() {
         return memberId;
     }
 
-    public void setMemberId(String memberId) {
+    public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
 
-    public String getGuestId() {
+    public Long getGuestId() {
         return guestId;
     }
 
-    public void setGuestId(String guestId) {
+    public void setGuestId(Long guestId) {
         this.guestId = guestId;
     }
 
@@ -76,11 +77,11 @@ public class Contribution implements Serializable {
         this.contributionDate = contributionDate;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -117,8 +118,8 @@ public class Contribution implements Serializable {
     public String toString() {
         return "Contribution{" +
                 "id=" + id +
-                ", memberId='" + memberId + '\'' +
-                ", guestId='" + guestId + '\'' +
+                ", memberId=" + memberId +
+                ", guestId=" + guestId +
                 ", purpose='" + purpose + '\'' +
                 ", method='" + method + '\'' +
                 ", contributionDate='" + contributionDate + '\'' +

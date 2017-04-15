@@ -162,12 +162,12 @@
                         <td>{{m.returnDate}}</td>
                         <td>{{m.marriageComment}}</td>
                         <td>
-                            <button type="button" ng-click="ctrl.editMarriage(b.id)" class="btn btn-success custom-width">
+                            <button type="button" ng-click="ctrl.editMarriage(m.id)" class="btn btn-success custom-width">
                                 Edit
                             </button>
                         </td>
                         <td>
-                            <button type="button" ng-click="ctrl.removeMarriage(b.id)"
+                            <button type="button" ng-click="ctrl.removeMarriage(m.id)"
                                     class="btn btn-danger custom-width">Remove
                             </button>
                         </td>

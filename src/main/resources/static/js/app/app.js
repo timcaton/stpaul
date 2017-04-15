@@ -9,7 +9,8 @@ app.constant('urls', {
     FUNERAL_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/funeral/',
     MARRIAGE_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/marriage/',
     GUEST_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/guest/',
-    CONTRIBUTION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/contribution/'
+    CONTRIBUTION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/contribution/',
+    COMMUNION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/communion/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -18,7 +19,32 @@ app.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'partials/member',
+                templateUrl: 'partials/home'
+            })
+
+            .state('memberLanding', {
+                url: '/memberLanding',
+                templateUrl: 'partials/memberLanding'
+            })
+
+            .state('memberCreate', {
+            url: '/memberCreate',
+            templateUrl: 'partials/memberCreate',
+            controller:'MemberController',
+            controllerAs:'ctrl',
+            resolve: {
+                members: function ($q, MemberService) {
+                    console.log('Load all members');
+                    var deferred = $q.defer();
+                    MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+            })
+
+            .state('memberEdit', {
+                url: '/memberEdit',
+                templateUrl: 'partials/memberEdit',
                 controller:'MemberController',
                 controllerAs:'ctrl',
                 resolve: {
@@ -30,6 +56,22 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     }
                 }
             })
+
+            .state('memberView', {
+                url: '/memberView',
+                templateUrl: 'partials/memberView',
+                controller:'MemberController',
+                controllerAs:'ctrl',
+                resolve: {
+                    members: function ($q, MemberService) {
+                        console.log('Load all members');
+                        var deferred = $q.defer();
+                        MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
+            })
+
             .state('baptism', {
             url: '/baptism',
             templateUrl: 'partials/baptism',
@@ -44,6 +86,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 }
             }
             })
+
+
             .state('household', {
             url: '/household',
             templateUrl: 'partials/household',
@@ -57,7 +101,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
-        }).state('confirmation', {
+            })
+
+            .state('confirmation', {
             url: '/confirmation',
             templateUrl: 'partials/confirmation',
             controller:'ConfirmationController',
@@ -70,7 +116,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
-        }).state('funeral', {
+            })
+
+            .state('funeral', {
             url: '/funeral',
             templateUrl: 'partials/funeral',
             controller:'FuneralController',
@@ -83,7 +131,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
-        }).state('marriage', {
+            })
+
+            .state('marriage', {
             url: '/marriage',
             templateUrl: 'partials/marriage',
             controller:'MarriageController',
@@ -96,7 +146,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
-        }).state('guest', {
+            })
+
+            .state('guest', {
             url: '/guest',
             templateUrl: 'partials/guest',
             controller:'GuestController',
@@ -109,7 +161,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
-        }).state('contribution', {
+            })
+
+            .state('contribution', {
             url: '/contribution',
             templateUrl: 'partials/contribution',
             controller:'ContributionController',
@@ -122,7 +176,22 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
-        });
+            })
+
+            .state('communion', {
+            url: '/communion',
+            templateUrl: 'partials/communion',
+            controller:'CommunionController',
+            controllerAs:'ctrl',
+            resolve: {
+                communions: function ($q, CommunionService) {
+                    console.log('Load all contributions');
+                    var deferred = $q.defer();
+                    CommunionService.loadAllCommunions().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+            });
         $urlRouterProvider.otherwise('/');
     }]);
 

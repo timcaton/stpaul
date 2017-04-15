@@ -30,5 +30,7 @@
         <script src="js/app/GuestController.js"></script>
         <script src="js/app/ContributionService.js"></script>
         <script src="js/app/ContributionController.js"></script>
+        <script src="js/app/CommunionService.js"></script>
+        <script src="js/app/CommunionController.js"></script>
     </body>
 </html>
