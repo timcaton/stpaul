@@ -9,9 +9,9 @@ public interface BaptismService {
 
     Baptism findByName(String name);
 
-    void saveBaptism(Baptism member);
+    void saveBaptism(Baptism baptism);
 
-    void updateBaptism(Baptism member);
+    void updateBaptism(Baptism baptism);
 
     void deleteBaptismById(Long id);
 
@@ -19,5 +19,5 @@ public interface BaptismService {
 
     List<Baptism> findAllBaptisms();
 
-    boolean isBaptismExist(Baptism member);
+    boolean isBaptismExist(Baptism baptism);
 }

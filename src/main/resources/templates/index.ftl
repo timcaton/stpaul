@@ -26,5 +26,9 @@
         <script src="js/app/FuneralController.js"></script>
         <script src="js/app/MarriageService.js"></script>
         <script src="js/app/MarriageController.js"></script>
+        <script src="js/app/GuestService.js"></script>
+        <script src="js/app/GuestController.js"></script>
+        <script src="js/app/ContributionService.js"></script>
+        <script src="js/app/ContributionController.js"></script>
     </body>
 </html>

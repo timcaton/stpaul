@@ -7,7 +7,9 @@ app.constant('urls', {
     HOUSEHOLD_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/household/',
     CONFIRMATION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/confirmation/',
     FUNERAL_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/funeral/',
-    MARRIAGE_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/marriage/'
+    MARRIAGE_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/marriage/',
+    GUEST_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/guest/',
+    CONTRIBUTION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/contribution/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -48,7 +50,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller:'HouseholdController',
             controllerAs:'ctrl',
             resolve: {
-                baptisms: function ($q, HouseholdService) {
+                households: function ($q, HouseholdService) {
                     console.log('Load all households');
                     var deferred = $q.defer();
                     HouseholdService.loadAllHouseholds().then(deferred.resolve, deferred.resolve);
@@ -61,7 +63,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller:'ConfirmationController',
             controllerAs:'ctrl',
             resolve: {
-                baptisms: function ($q, ConfirmationService) {
+                confirmations: function ($q, ConfirmationService) {
                     console.log('Load all confirmations');
                     var deferred = $q.defer();
                     ConfirmationService.loadAllConfirmations().then(deferred.resolve, deferred.resolve);
@@ -74,7 +76,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller:'FuneralController',
             controllerAs:'ctrl',
             resolve: {
-                baptisms: function ($q, FuneralService) {
+                funerals: function ($q, FuneralService) {
                     console.log('Load all funerals');
                     var deferred = $q.defer();
                     FuneralService.loadAllFunerals().then(deferred.resolve, deferred.resolve);
@@ -87,10 +89,36 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller:'MarriageController',
             controllerAs:'ctrl',
             resolve: {
-                baptisms: function ($q, MarriageService) {
+                marriages: function ($q, MarriageService) {
                     console.log('Load all marriages');
                     var deferred = $q.defer();
                     MarriageService.loadAllMarriages().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+        }).state('guest', {
+            url: '/guest',
+            templateUrl: 'partials/guest',
+            controller:'GuestController',
+            controllerAs:'ctrl',
+            resolve: {
+                guests: function ($q, GuestService) {
+                    console.log('Load all guests');
+                    var deferred = $q.defer();
+                    GuestService.loadAllGuests().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                }
+            }
+        }).state('contribution', {
+            url: '/contribution',
+            templateUrl: 'partials/contribution',
+            controller:'ContributionController',
+            controllerAs:'ctrl',
+            resolve: {
+                contributions: function ($q, ContributionService) {
+                    console.log('Load all contributions');
+                    var deferred = $q.defer();
+                    ContributionService.loadAllContributions().then(deferred.resolve, deferred.resolve);
                     return deferred.promise;
                 }
             }
