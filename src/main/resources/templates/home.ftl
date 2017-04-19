@@ -33,6 +33,20 @@
                         </div>
                     </div>
 
+                    <div class="form-group col-md-12">
+                        <div class="col-md-7">
+                            <a href="#/communion">Communion</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="col-md-7">
+                            <a href="#/">Reports will go here</a>
+                        </div>
+                    </div>
+            </div>
+            </div>
+
                 </form>
             </div>
         </div>

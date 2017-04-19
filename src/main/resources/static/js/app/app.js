@@ -24,6 +24,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
             .state('memberLanding', {
                 url: '/memberLanding',
+                controller:'MemberController',
+                controllerAs:'ctrl',
                 templateUrl: 'partials/memberLanding'
             })
 
