@@ -15,7 +15,7 @@ angular.module('crudApp').controller('GuestController',
         self.removeGuest = removeGuest;
         self.editGuest = editGuest;
         self.reset = reset;
-        self.setMember = setMember;
+        self.doTheBack = doTheBack;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -24,10 +24,8 @@ angular.module('crudApp').controller('GuestController',
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
 
-        function setMember() {
-            console.log("blah");
-            $scope.member = {};
-            $scope.member = MemberService.getMember(id);
+        function doTheBack() {
+            window.history.back();
         }
 
         function submit() {

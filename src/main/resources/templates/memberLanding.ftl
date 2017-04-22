@@ -1,6 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="form-group col-md-12">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <div>
+                        <a href="#/"><button class="btn btn-success btn-sm">Home</button></a>
+                        <button class="btn btn-warning btn-sm" ng-click="ctrl.doTheBack()">Back</button>
+                    </div>
+                </div>
+            </div>
             <div class="floatRight">
                 <a href="#/household"><button class="btn btn-warning custom-width">Create a New Household</button></a>
                 <a href="#/memberCreate"><button class="btn btn-success custom-width">Create a New Member</button></a>
@@ -199,11 +207,10 @@
         <div class="panel-body">
             <div class="row">
                 <div >
-                    <a href="#/marriage"><button class="btn btn-success custom-width">View Marriage</button></a>
-                    <a href="#/baptism"><button class="btn btn-success custom-width">View Baptism</button></a>
-                    <a href="#/confirmation"><button class="btn btn-success custom-width">View Confirmation</button></a>
-                    <a href="#/communion"><button class="btn btn-success custom-width">View Communion</button></a>
-                    <a href="#/funeral"><button class="btn btn-success custom-width">View Funeral</button></a>
+                    <button class="btn btn-success custom-width" ng-click="ctrl.openMarriageModal()">View Marriage</button>
+                    <button class="btn btn-success custom-width" ng-click="ctrl.openBaptismModal()">View Baptism</button>
+                    <button class="btn btn-success custom-width" ng-click="ctrl.openConfirmationModal()">View Confirmation</button>
+                    <button class="btn btn-success custom-width" ng-click="ctrl.openFuneralModal()">View Funeral</button>
                 </div>
             </div>
         </div>

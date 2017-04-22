@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div>
+                <a href="#/"><button class="btn btn-success btn-sm">Home</button></a>
+                <button class="btn btn-warning btn-sm" ng-click="ctrl.doTheBack()">Back</button>
+            </div>
+        </div>
+    </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">Contributions</span></div>

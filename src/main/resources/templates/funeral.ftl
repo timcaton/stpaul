@@ -1,7 +1,7 @@
 <div class="container">
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">Funerals</span></div>
+        <div class="panel-heading"><span class="lead">Funeral</span></div>
         <div class="panel-body">
             <div class="formcontainer">
                 <div class="alert alert-success" role="alert" ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
@@ -116,54 +116,54 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Funerals</span></div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>CHURCH MEMBER ID</th>
-                        <th>NAME</th>
-                        <th>FUNERAL DATE</th>
-                        <th>DEATH DATE</th>
-                        <th>FUNERAL PLACE</th>
-                        <th>FUNERAL OFFICIANT</th>
-                        <th>BURIAL LOCATION</th>
-                        <th>PALL BEARERS</th>
-                        <th>FUNERAL COMMENT</th>
-                        <th width="100"></th>
-                        <th width="100"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="f in ctrl.getAllFunerals()">
-                        <td>{{f.id}}</td>
-                        <td>{{f.memberId}}</td>
-                        <td>{{getMemberName(b.memberId)}}</td>
-                        <td>{{f.funeralDate}}</td>
-                        <td>{{f.deathDate}}</td>
-                        <td>{{f.funeralPlace}}</td>
-                        <td>{{f.funeralOfficiant}}</td>
-                        <td>{{f.burialLocation}}</td>
-                        <td>{{f.pallBearers}}</td>
-                        <td>{{f.funeralComment}}</td>
-                        <td>
-                            <button type="button" ng-click="ctrl.editFuneral(b.id)" class="btn btn-success custom-width">
-                                Edit
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" ng-click="ctrl.removeFuneral(b.id)"
-                                    class="btn btn-danger custom-width">Remove
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <#--<div class="panel panel-default">-->
+        <#--<!-- Default panel contents &ndash;&gt;-->
+        <#--<div class="panel-heading"><span class="lead">List of Funerals</span></div>-->
+        <#--<div class="panel-body">-->
+            <#--<div class="table-responsive">-->
+                <#--<table class="table table-hover">-->
+                    <#--<thead>-->
+                    <#--<tr>-->
+                        <#--<th>ID</th>-->
+                        <#--<th>CHURCH MEMBER ID</th>-->
+                        <#--<th>NAME</th>-->
+                        <#--<th>FUNERAL DATE</th>-->
+                        <#--<th>DEATH DATE</th>-->
+                        <#--<th>FUNERAL PLACE</th>-->
+                        <#--<th>FUNERAL OFFICIANT</th>-->
+                        <#--<th>BURIAL LOCATION</th>-->
+                        <#--<th>PALL BEARERS</th>-->
+                        <#--<th>FUNERAL COMMENT</th>-->
+                        <#--<th width="100"></th>-->
+                        <#--<th width="100"></th>-->
+                    <#--</tr>-->
+                    <#--</thead>-->
+                    <#--<tbody>-->
+                    <#--<tr ng-repeat="f in ctrl.getAllFunerals()">-->
+                        <#--<td>{{f.id}}</td>-->
+                        <#--<td>{{f.memberId}}</td>-->
+                        <#--<td>{{getMemberName(b.memberId)}}</td>-->
+                        <#--<td>{{f.funeralDate}}</td>-->
+                        <#--<td>{{f.deathDate}}</td>-->
+                        <#--<td>{{f.funeralPlace}}</td>-->
+                        <#--<td>{{f.funeralOfficiant}}</td>-->
+                        <#--<td>{{f.burialLocation}}</td>-->
+                        <#--<td>{{f.pallBearers}}</td>-->
+                        <#--<td>{{f.funeralComment}}</td>-->
+                        <#--<td>-->
+                            <#--<button type="button" ng-click="ctrl.editFuneral(b.id)" class="btn btn-success custom-width">-->
+                                <#--Edit-->
+                            <#--</button>-->
+                        <#--</td>-->
+                        <#--<td>-->
+                            <#--<button type="button" ng-click="ctrl.removeFuneral(b.id)"-->
+                                    <#--class="btn btn-danger custom-width">Remove-->
+                            <#--</button>-->
+                        <#--</td>-->
+                    <#--</tr>-->
+                    <#--</tbody>-->
+                <#--</table>-->
+            <#--</div>-->
+        <#--</div>-->
+    <#--</div>-->
 </div>

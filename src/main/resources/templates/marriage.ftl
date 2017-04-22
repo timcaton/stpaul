@@ -125,56 +125,56 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Marriages</span></div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>SPOUSE</th>
-                        <th>SPOUSE</th>
-                        <th>MARRIAGE DATE</th>
-                        <th>MARRIAGE LOCATION</th>
-                        <th>OFFICIANT</th>
-                        <th>WITNESS</th>
-                        <th>WITNESS</th>
-                        <th>LICENSE NUMBER</th>
-                        <th>RETURN DATE</th>
-                        <th>COMMENT</th>
-                        <th width="100"></th>
-                        <th width="100"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="m in ctrl.getAllMarriages()">
-                        <td>{{m.id}}</td>
-                        <td>{{m.spouse1}}</td>
-                        <td>{{m.spouse2}}</td>
-                        <td>{{m.marriageDate}}</td>
-                        <td>{{m.marriagePlace}}</td>
-                        <td>{{m.marriageOfficiant}}</td>
-                        <td>{{m.witnessName1}}</td>
-                        <td>{{m.witnessName2}}</td>
-                        <td>{{m.licenseNumber}}</td>
-                        <td>{{m.returnDate}}</td>
-                        <td>{{m.marriageComment}}</td>
-                        <td>
-                            <button type="button" ng-click="ctrl.editMarriage(m.id)" class="btn btn-success custom-width">
-                                Edit
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" ng-click="ctrl.removeMarriage(m.id)"
-                                    class="btn btn-danger custom-width">Remove
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <#--<div class="panel panel-default">-->
+        <#--<!-- Default panel contents &ndash;&gt;-->
+        <#--<div class="panel-heading"><span class="lead">List of Marriages</span></div>-->
+        <#--<div class="panel-body">-->
+            <#--<div class="table-responsive">-->
+                <#--<table class="table table-hover">-->
+                    <#--<thead>-->
+                    <#--<tr>-->
+                        <#--<th>ID</th>-->
+                        <#--<th>SPOUSE</th>-->
+                        <#--<th>SPOUSE</th>-->
+                        <#--<th>MARRIAGE DATE</th>-->
+                        <#--<th>MARRIAGE LOCATION</th>-->
+                        <#--<th>OFFICIANT</th>-->
+                        <#--<th>WITNESS</th>-->
+                        <#--<th>WITNESS</th>-->
+                        <#--<th>LICENSE NUMBER</th>-->
+                        <#--<th>RETURN DATE</th>-->
+                        <#--<th>COMMENT</th>-->
+                        <#--<th width="100"></th>-->
+                        <#--<th width="100"></th>-->
+                    <#--</tr>-->
+                    <#--</thead>-->
+                    <#--<tbody>-->
+                    <#--<tr ng-repeat="m in ctrl.getAllMarriages()">-->
+                        <#--<td>{{m.id}}</td>-->
+                        <#--<td>{{m.spouse1}}</td>-->
+                        <#--<td>{{m.spouse2}}</td>-->
+                        <#--<td>{{m.marriageDate}}</td>-->
+                        <#--<td>{{m.marriagePlace}}</td>-->
+                        <#--<td>{{m.marriageOfficiant}}</td>-->
+                        <#--<td>{{m.witnessName1}}</td>-->
+                        <#--<td>{{m.witnessName2}}</td>-->
+                        <#--<td>{{m.licenseNumber}}</td>-->
+                        <#--<td>{{m.returnDate}}</td>-->
+                        <#--<td>{{m.marriageComment}}</td>-->
+                        <#--<td>-->
+                            <#--<button type="button" ng-click="ctrl.editMarriage(m.id)" class="btn btn-success custom-width">-->
+                                <#--Edit-->
+                            <#--</button>-->
+                        <#--</td>-->
+                        <#--<td>-->
+                            <#--<button type="button" ng-click="ctrl.removeMarriage(m.id)"-->
+                                    <#--class="btn btn-danger custom-width">Remove-->
+                            <#--</button>-->
+                        <#--</td>-->
+                    <#--</tr>-->
+                    <#--</tbody>-->
+                <#--</table>-->
+            <#--</div>-->
+        <#--</div>-->
+    <#--</div>-->
 </div>

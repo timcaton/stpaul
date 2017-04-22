@@ -1,7 +1,7 @@
 <div class="container">
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">Baptisms</span></div>
+        <div class="panel-heading"><span class="lead">Baptism</span></div>
         <div class="panel-body">
             <div class="formcontainer">
                 <div class="alert alert-success" role="alert" ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
@@ -13,7 +13,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Church Member ID</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.memberId" ng-change="setMember()"  id="memberId" class="form-control input-sm"
+                                <input readonly type="text" ng-model="ctrl.baptism.memberId" id="memberId" class="form-control input-sm"
                                        placeholder="Enter Church Member ID" required ng-minlength="1"/>
                             </div>
                         </div>
@@ -23,9 +23,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Church Member Name</label>
                             <div class="col-md-7">
-                                <p>{{member.name}}</p>
-                                <#--<input type="text"  ng-model="ctrl.baptism.memberName" id="memberName" class="form-control input-sm"-->
-                                       <#--placeholder="getMemberName(memberId)" required ng-minlength="1"/>-->
+                                <input readonly type="text"  ng-model="ctrl.baptism.memberName" id="memberName" class="form-control input-sm"/>
                             </div>
                         </div>
                     </div>
@@ -125,54 +123,54 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Baptisms </span></div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>CHURCH MEMBER ID</th>
-                        <th>NAME</th>
-                        <th>LOCATION</th>
-                        <th>OFFICIANT</th>
-                        <th>SPONSOR</th>
-                        <th>WITNESS</th>
-                        <th>PARENT</th>
-                        <th>PARENT</th>
-                        <th>COMMENTS</th>
-                        <th width="100"></th>
-                        <th width="100"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="b in ctrl.getAllBaptisms()">
-                        <td>{{b.id}}</td>
-                        <td>{{b.memberId}}</td>
-                        <td>{{getMemberName(b.memberId)}}</td>
-                        <td>{{b.baptismLocation}}</td>
-                        <td>{{b.baptismOfficiant}}</td>
-                        <td>{{b.sponsorName}}</td>
-                        <td>{{b.witnessName}}</td>
-                        <td>{{b.parentName1}}</td>
-                        <td>{{b.parentName2}}</td>
-                        <td>{{b.baptismComment}}</td>
-                        <td>
-                            <button type="button" ng-click="ctrl.editBaptism(b.id)" class="btn btn-success custom-width">
-                                Edit
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" ng-click="ctrl.removeBaptism(b.id)"
-                                    class="btn btn-danger custom-width">Remove
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <#--<div class="panel panel-default">-->
+        <#--<!-- Default panel contents &ndash;&gt;-->
+        <#--<div class="panel-heading"><span class="lead">List of Baptisms </span></div>-->
+        <#--<div class="panel-body">-->
+            <#--<div class="table-responsive">-->
+                <#--<table class="table table-hover">-->
+                    <#--<thead>-->
+                    <#--<tr>-->
+                        <#--<th>ID</th>-->
+                        <#--<th>CHURCH MEMBER ID</th>-->
+                        <#--<th>NAME</th>-->
+                        <#--<th>LOCATION</th>-->
+                        <#--<th>OFFICIANT</th>-->
+                        <#--<th>SPONSOR</th>-->
+                        <#--<th>WITNESS</th>-->
+                        <#--<th>PARENT</th>-->
+                        <#--<th>PARENT</th>-->
+                        <#--<th>COMMENTS</th>-->
+                        <#--<th width="100"></th>-->
+                        <#--<th width="100"></th>-->
+                    <#--</tr>-->
+                    <#--</thead>-->
+                    <#--<tbody>-->
+                    <#--<tr ng-repeat="b in ctrl.getAllBaptisms()">-->
+                        <#--<td>{{b.id}}</td>-->
+                        <#--<td>{{b.memberId}}</td>-->
+                        <#--<td>{{getMemberName(b.memberId)}}</td>-->
+                        <#--<td>{{b.baptismLocation}}</td>-->
+                        <#--<td>{{b.baptismOfficiant}}</td>-->
+                        <#--<td>{{b.sponsorName}}</td>-->
+                        <#--<td>{{b.witnessName}}</td>-->
+                        <#--<td>{{b.parentName1}}</td>-->
+                        <#--<td>{{b.parentName2}}</td>-->
+                        <#--<td>{{b.baptismComment}}</td>-->
+                        <#--<td>-->
+                            <#--<button type="button" ng-click="ctrl.editBaptism(b.id)" class="btn btn-success custom-width">-->
+                                <#--Edit-->
+                            <#--</button>-->
+                        <#--</td>-->
+                        <#--<td>-->
+                            <#--<button type="button" ng-click="ctrl.removeBaptism(b.id)"-->
+                                    <#--class="btn btn-danger custom-width">Remove-->
+                            <#--</button>-->
+                        <#--</td>-->
+                    <#--</tr>-->
+                    <#--</tbody>-->
+                <#--</table>-->
+            <#--</div>-->
+        <#--</div>-->
+    <#--</div>-->
 </div>

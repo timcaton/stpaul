@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="floatRight">
+            <div>
+                <a href="#/"><button class="btn btn-success btn-sm">Home</button></a>
                 <button class="btn btn-warning btn-sm" ng-click="ctrl.doTheBack()">Back</button>
             </div>
         </div>

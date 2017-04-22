@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('crudApp').controller('FuneralController',
-    ['FuneralService', 'MemberService', '$scope',  function( FuneralService, MemberService, $scope) {
+    ['FuneralService', 'MemberService', '$scope', '$uibModalInstance',  function( FuneralService, MemberService, $scope,  modalInstance) {
 
         var self = this;
         self.funeral = {};
         self.funerals=[];
-        $scope.member = {};
+
+        var currentMember = modalInstance.member;
+        var currentMemberId = currentMember.id;
 
         self.submit = submit;
         self.getAllFunerals = getAllFunerals;
@@ -15,7 +17,6 @@ angular.module('crudApp').controller('FuneralController',
         self.removeFuneral = removeFuneral;
         self.editFuneral = editFuneral;
         self.reset = reset;
-        self.setMember = setMember;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -24,10 +25,10 @@ angular.module('crudApp').controller('FuneralController',
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
 
-        function setMember() {
-            console.log("blah");
-            $scope.member = {};
-            $scope.member = MemberService.getMember(id);
+        init();
+
+        function init() {
+            editFuneral(currentMemberId);
         }
 
         function submit() {
@@ -103,6 +104,8 @@ angular.module('crudApp').controller('FuneralController',
         function editFuneral(id) {
             self.successMessage='';
             self.errorMessage='';
+            self.funeral.memberId = id;
+            self.funeral.memberName = currentMember.name;
             FuneralService.getFuneral(id).then(
                 function (funeral) {
                     self.funeral = funeral;

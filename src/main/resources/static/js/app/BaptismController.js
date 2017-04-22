@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('crudApp').controller('BaptismController',
-    ['BaptismService', 'MemberService', '$scope',  function( BaptismService, MemberService, $scope) {
+    ['BaptismService', 'MemberService', '$scope', '$uibModalInstance',  function( BaptismService, MemberService, $scope, modalInstance) {
 
         var self = this;
         self.baptism = {};
         self.baptisms=[];
-        $scope.member = {};
+
+        var currentMember = modalInstance.member;
+        var currentMemberId = currentMember.id;
 
         self.submit = submit;
         self.getAllBaptisms = getAllBaptisms;
@@ -14,8 +16,8 @@ angular.module('crudApp').controller('BaptismController',
         self.updateBaptism = updateBaptism;
         self.removeBaptism = removeBaptism;
         self.editBaptism = editBaptism;
+        self.doTheBack = doTheBack;
         self.reset = reset;
-        self.setMember = setMember;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -24,10 +26,14 @@ angular.module('crudApp').controller('BaptismController',
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
 
-        function setMember() {
-            console.log("blah");
-            $scope.member = {};
-            $scope.member = MemberService.getMember(id);
+        init();
+
+        function init() {
+            editBaptism(currentMemberId);
+        }
+
+        function doTheBack() {
+            window.history.back();
         }
 
         function submit() {
@@ -103,11 +109,16 @@ angular.module('crudApp').controller('BaptismController',
         function editBaptism(id) {
             self.successMessage='';
             self.errorMessage='';
+            self.baptism.memberId = id;
+            self.baptism.memberName = currentMember.name;
             BaptismService.getBaptism(id).then(
                 function (baptism) {
                     self.baptism = baptism;
                 },
                 function (errResponse) {
+                    if(errResponse.status == 404){
+                        self.errorMessage='No Baptism Information For This Member';
+                    }
                     console.error('Error while removing baptism ' + id + ', Error :' + errResponse.data);
                 }
             );

@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('crudApp').controller('MarriageController',
-    ['MarriageService', 'MemberService', '$scope',  function( MarriageService, MemberService, $scope) {
+    ['MarriageService', 'MemberService', '$scope', '$uibModalInstance', function( MarriageService, MemberService, $scope, modalInstance) {
 
         var self = this;
         self.marriage = {};
         self.marriages=[];
-        $scope.member = {};
 
         self.submit = submit;
         self.getAllMarriages = getAllMarriages;
@@ -15,7 +14,6 @@ angular.module('crudApp').controller('MarriageController',
         self.removeMarriage = removeMarriage;
         self.editMarriage = editMarriage;
         self.reset = reset;
-        self.setMember = setMember;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -23,12 +21,6 @@ angular.module('crudApp').controller('MarriageController',
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
-
-        function setMember() {
-            console.log("blah");
-            $scope.member = {};
-            $scope.member = MemberService.getMember(id);
-        }
 
         function submit() {
             console.log('Submitting');

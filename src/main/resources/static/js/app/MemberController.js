@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('crudApp').controller('MemberController',
-    ['MemberService', 'HouseholdService', '$scope',  function( MemberService, HouseholdService, $scope) {
+angular.module('crudApp').controller('MemberController', ['MemberService', 'HouseholdService', '$scope', '$uibModal',
+    function( MemberService, HouseholdService, $scope, $modal) {
 
         var self = this;
         self.member = {};
@@ -18,6 +18,10 @@ angular.module('crudApp').controller('MemberController',
         self.editMember = editMember;
         self.getAllHouseholds = getAllHouseholds;
         self.doTheBack = doTheBack;
+        self.openBaptismModal = openBaptismModal;
+        self.openConfirmationModal = openConfirmationModal;
+        self.openFuneralModal = openFuneralModal;
+        self.openMarriageModal = openMarriageModal;
         self.reset = reset;
 
         self.successMessage = '';
@@ -29,6 +33,46 @@ angular.module('crudApp').controller('MemberController',
 
         function doTheBack() {
             window.history.back();
+        }
+
+        function openMarriageModal() {
+            var marriageModal = $modal.open({
+                templateUrl: 'partials/marriage',
+                size: 'lg',
+                controller:'MarriageController',
+                controllerAs:'ctrl'
+            });
+            marriageModal.member = self.member;
+        }
+
+        function openBaptismModal() {
+            var baptismModal = $modal.open({
+                templateUrl: 'partials/baptism',
+                size: 'lg',
+                controller:'BaptismController',
+                controllerAs:'ctrl'
+            });
+            baptismModal.member = self.member;
+        }
+
+        function openFuneralModal() {
+            var funeralModal = $modal.open({
+                templateUrl: 'partials/funeral',
+                size: 'lg',
+                controller:'FuneralController',
+                controllerAs:'ctrl'
+            });
+            funeralModal.member = self.member;
+        }
+
+        function openConfirmationModal() {
+            var confirmationModal = $modal.open({
+                templateUrl: 'partials/confirmation',
+                size: 'lg',
+                controller:'ConfirmationController',
+                controllerAs:'ctrl'
+            });
+            confirmationModal.member = self.member;
         }
 
         function submit() {

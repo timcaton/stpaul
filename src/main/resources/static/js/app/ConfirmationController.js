@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('crudApp').controller('ConfirmationController',
-    ['ConfirmationService', 'MemberService', '$scope',  function( ConfirmationService, MemberService, $scope) {
+    ['ConfirmationService', 'MemberService', '$scope', '$uibModalInstance', function( ConfirmationService, MemberService, $scope, modalInstance) {
 
         var self = this;
         self.confirmation = {};
         self.confirmations=[];
-        $scope.member = {};
+
+        var currentMember = modalInstance.member;
+        var currentMemberId = currentMember.id;
 
         self.submit = submit;
         self.getAllConfirmations = getAllConfirmations;
@@ -15,7 +17,6 @@ angular.module('crudApp').controller('ConfirmationController',
         self.removeConfirmation = removeConfirmation;
         self.editConfirmation = editConfirmation;
         self.reset = reset;
-        self.setMember = setMember;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -24,10 +25,10 @@ angular.module('crudApp').controller('ConfirmationController',
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
 
-        function setMember() {
-            console.log("blah");
-            $scope.member = {};
-            $scope.member = MemberService.getMember(id);
+        init();
+
+        function init() {
+            editConfirmation(currentMemberId);
         }
 
         function submit() {
@@ -103,6 +104,8 @@ angular.module('crudApp').controller('ConfirmationController',
         function editConfirmation(id) {
             self.successMessage='';
             self.errorMessage='';
+            self.confirmation.memberId = id;
+            self.confirmation.memberName = currentMember.name;
             ConfirmationService.getConfirmation(id).then(
                 function (confirmation) {
                     self.confirmation = confirmation;
