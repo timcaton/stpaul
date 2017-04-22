@@ -81,7 +81,7 @@ public class HouseholdRestApiController {
                     HttpStatus.NOT_FOUND);
         }
 
-        currentHousehold.setMemberId(household.getMemberId());
+        currentHousehold.setId(household.getId());
         currentHousehold.setName(household.getName());
         currentHousehold.setHouseholdType(household.getHouseholdType());
 

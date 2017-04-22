@@ -65,12 +65,12 @@
                         <td>{{h.name}}</td>
                         <td>{{h.householdType}}</td>
                         <td>
-                            <button type="button" ng-click="ctrl.editHousehold(b.id)" class="btn btn-success custom-width">
+                            <button type="button" ng-click="ctrl.editHousehold(h.id)" class="btn btn-success custom-width">
                                 Edit
                             </button>
                         </td>
                         <td>
-                            <button type="button" ng-click="ctrl.removeHousehold(b.id)"
+                            <button type="button" ng-click="ctrl.removeHousehold(h.id)"
                                     class="btn btn-danger custom-width">Remove
                             </button>
                         </td>

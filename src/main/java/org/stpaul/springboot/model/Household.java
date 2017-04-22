@@ -10,9 +10,6 @@ public class Household implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "MEMBER_ID")
-    private Long memberId;
-
     @Column(name = "NAME")
     private String name;
 
@@ -25,14 +22,6 @@ public class Household implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
     }
 
     public String getName() {
@@ -59,7 +48,6 @@ public class Household implements Serializable {
         Household household = (Household) o;
 
         if (id != null ? !id.equals(household.id) : household.id != null) return false;
-        if (memberId != null ? !memberId.equals(household.memberId) : household.memberId != null) return false;
         if (name != null ? !name.equals(household.name) : household.name != null)
             return false;
         return householdType != null ? householdType.equals(household.householdType) : household.householdType == null;
@@ -68,7 +56,6 @@ public class Household implements Serializable {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (memberId != null ? memberId.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (householdType != null ? householdType.hashCode() : 0);
         return result;
@@ -78,7 +65,6 @@ public class Household implements Serializable {
     public String toString() {
         return "Household{" +
                 "id=" + id +
-                ", memberId=" + memberId +
                 ", name='" + name + '\'' +
                 ", householdType='" + householdType + '\'' +
                 '}';

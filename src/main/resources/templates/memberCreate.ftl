@@ -1,4 +1,11 @@
 <div class="container">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="floatRight">
+                <button class="btn btn-warning btn-sm" ng-click="ctrl.doTheBack()">Back</button>
+            </div>
+        </div>
+    </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">Member</span></div>
@@ -8,6 +15,18 @@
                 <div class="alert alert-danger" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
                 <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
                     <input type="hidden" ng-model="ctrl.member.id"/>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="title">Household</label>
+                            <div class="col-md-7">
+                                <select class="form-control" ng-model="ctrl.member.householdId" id="householdId"
+                                        ng-options="h.name for h in ctrl.getAllHouseholds() track by h.id" required>
+                                        <option value="">--Select a Household--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="form-group col-md-12">
@@ -36,6 +55,18 @@
                                 <input type="text" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
                                        placeholder="Enter DOB in mm/dd/yyyy format" required ng-minlength="10"
                                        ng-maxlength="10"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="status">Status</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.status" id="status"
+                                       class="form-control input-sm"
+                                       placeholder="Enter status Active, Inactive, or Shut-In" required
+                                       ng-minlength="3"/>
                             </div>
                         </div>
                     </div>

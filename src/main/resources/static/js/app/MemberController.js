@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('crudApp').controller('MemberController',
-    ['MemberService', '$scope',  function( MemberService, $scope) {
+    ['MemberService', 'HouseholdService', '$scope',  function( MemberService, HouseholdService, $scope) {
 
         var self = this;
         self.member = {};
         self.members=[];
+        self.household = {};
+        self.households=[];
+        self.householdId;
 
         self.submit = submit;
         self.getAllMembers = getAllMembers;
@@ -13,6 +16,8 @@ angular.module('crudApp').controller('MemberController',
         self.updateMember = updateMember;
         self.removeMember = removeMember;
         self.editMember = editMember;
+        self.getAllHouseholds = getAllHouseholds;
+        self.doTheBack = doTheBack;
         self.reset = reset;
 
         self.successMessage = '';
@@ -21,6 +26,10 @@ angular.module('crudApp').controller('MemberController',
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
+
+        function doTheBack() {
+            window.history.back();
+        }
 
         function submit() {
             console.log('Submitting');
@@ -35,6 +44,7 @@ angular.module('crudApp').controller('MemberController',
 
         function createMember(member) {
             console.log('About to create member');
+            member.householdId = member.householdId.id;
             MemberService.createMember(member)
                 .then(
                     function (response) {
@@ -87,9 +97,12 @@ angular.module('crudApp').controller('MemberController',
                 );
         }
 
-
         function getAllMembers(){
             return MemberService.getAllMembers();
+        }
+
+        function getAllHouseholds(){
+            return HouseholdService.getAllHouseholds();
         }
 
         function editMember(id) {
@@ -101,6 +114,11 @@ angular.module('crudApp').controller('MemberController',
                 },
                 function (errResponse) {
                     console.error('Error while removing member ' + id + ', Error :' + errResponse.data);
+                }
+            );
+            HouseholdService.getHousehold(self.member.householdId).then(
+                function (householdName) {
+                    self.member.householdName = householdName;
                 }
             );
         }

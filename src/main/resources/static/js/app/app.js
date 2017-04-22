@@ -26,7 +26,21 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url: '/memberLanding',
                 controller:'MemberController',
                 controllerAs:'ctrl',
-                templateUrl: 'partials/memberLanding'
+                templateUrl: 'partials/memberLanding',
+                resolve: {
+                    members: function ($q, MemberService) {
+                        console.log('Load all members');
+                        var deferred = $q.defer();
+                        MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    households: function ($q, HouseholdService) {
+                        console.log('Load all households');
+                        var deferred = $q.defer();
+                        HouseholdService.loadAllHouseholds().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
             })
 
             .state('memberCreate', {
@@ -39,6 +53,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     console.log('Load all members');
                     var deferred = $q.defer();
                     MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                },
+                households: function ($q, HouseholdService) {
+                    console.log('Load all households');
+                    var deferred = $q.defer();
+                    HouseholdService.loadAllHouseholds().then(deferred.resolve, deferred.resolve);
                     return deferred.promise;
                 }
             }
