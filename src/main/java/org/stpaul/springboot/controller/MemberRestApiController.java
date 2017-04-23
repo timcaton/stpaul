@@ -95,7 +95,6 @@ public class MemberRestApiController {
 		currentMember.setContributionId(member.getContributionId());
 		currentMember.setEnvelopeId(member.getEnvelopeId());
 		currentMember.setHouseholdId(member.getHouseholdId());
-		currentMember.setCommunionId(member.getCommunionId());
 		currentMember.setDob(member.getDob());
 		currentMember.setGender(member.getGender());
 		currentMember.setNickname(member.getNickname());
@@ -106,7 +105,6 @@ public class MemberRestApiController {
 		currentMember.setCity(member.getCity());
 		currentMember.setZipCode(member.getZipCode());
 		currentMember.setAddress(member.getAddress());
-		currentMember.setCarrierDate(member.getCarrierDate());
 		currentMember.setEmail(member.getEmail());
 		currentMember.setStatus(member.getStatus());
 		currentMember.setReceivedBy(member.getReceivedBy());

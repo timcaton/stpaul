@@ -40,9 +40,6 @@ public class Member implements Serializable{
 	@Column(name = "HOUSEHOLD_ID")
 	private Long householdId;
 
-	@Column(name = "COMMUNION_ID")
-	private Long communionId;
-
 	@Column(name = "DOB")
 	private String dob;
 
@@ -59,7 +56,7 @@ public class Member implements Serializable{
 	private String ethnicity;
 
 	@Column(name = "SEQUENCE_IN_HOUSEHOLD")
-	private Long sequenceInHousehold;
+	private String sequenceInHousehold;
 
 	@Column(name = "STATE")
 	private String state;
@@ -72,9 +69,6 @@ public class Member implements Serializable{
 
 	@Column(name = "ADDRESS")
 	private String address;
-
-	@Column(name = "CARRIER_DATE")
-	private String carrierDate;
 
 	@Column(name = "Email")
 	private String email;
@@ -186,14 +180,6 @@ public class Member implements Serializable{
         this.householdId = householdId;
     }
 
-    public Long getCommunionId() {
-        return communionId;
-    }
-
-    public void setCommunionId(Long communionId) {
-        this.communionId = communionId;
-    }
-
     public String getDob() {
         return dob;
     }
@@ -234,11 +220,11 @@ public class Member implements Serializable{
         this.ethnicity = ethnicity;
     }
 
-    public Long getSequenceInHousehold() {
+    public String getSequenceInHousehold() {
         return sequenceInHousehold;
     }
 
-    public void setSequenceInHousehold(Long sequenceInHousehold) {
+    public void setSequenceInHousehold(String sequenceInHousehold) {
         this.sequenceInHousehold = sequenceInHousehold;
     }
 
@@ -272,14 +258,6 @@ public class Member implements Serializable{
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getCarrierDate() {
-        return carrierDate;
-    }
-
-    public void setCarrierDate(String carrierDate) {
-        this.carrierDate = carrierDate;
     }
 
     public String getEmail() {
@@ -381,7 +359,6 @@ public class Member implements Serializable{
             return false;
         if (envelopeId != null ? !envelopeId.equals(member.envelopeId) : member.envelopeId != null) return false;
         if (householdId != null ? !householdId.equals(member.householdId) : member.householdId != null) return false;
-        if (communionId != null ? !communionId.equals(member.communionId) : member.communionId != null) return false;
         if (dob != null ? !dob.equals(member.dob) : member.dob != null) return false;
         if (gender != null ? !gender.equals(member.gender) : member.gender != null) return false;
         if (nickname != null ? !nickname.equals(member.nickname) : member.nickname != null) return false;
@@ -393,7 +370,6 @@ public class Member implements Serializable{
         if (city != null ? !city.equals(member.city) : member.city != null) return false;
         if (zipCode != null ? !zipCode.equals(member.zipCode) : member.zipCode != null) return false;
         if (address != null ? !address.equals(member.address) : member.address != null) return false;
-        if (carrierDate != null ? !carrierDate.equals(member.carrierDate) : member.carrierDate != null) return false;
         if (email != null ? !email.equals(member.email) : member.email != null) return false;
         if (status != null ? !status.equals(member.status) : member.status != null) return false;
         if (receivedBy != null ? !receivedBy.equals(member.receivedBy) : member.receivedBy != null) return false;
@@ -422,7 +398,6 @@ public class Member implements Serializable{
         result = 31 * result + (contributionId != null ? contributionId.hashCode() : 0);
         result = 31 * result + (envelopeId != null ? envelopeId.hashCode() : 0);
         result = 31 * result + (householdId != null ? householdId.hashCode() : 0);
-        result = 31 * result + (communionId != null ? communionId.hashCode() : 0);
         result = 31 * result + (dob != null ? dob.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
@@ -433,7 +408,6 @@ public class Member implements Serializable{
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (carrierDate != null ? carrierDate.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (receivedBy != null ? receivedBy.hashCode() : 0);
@@ -460,7 +434,6 @@ public class Member implements Serializable{
                 ", contributionId=" + contributionId +
                 ", envelopeId=" + envelopeId +
                 ", householdId=" + householdId +
-                ", communionId=" + communionId +
                 ", dob='" + dob + '\'' +
                 ", gender='" + gender + '\'' +
                 ", nickname='" + nickname + '\'' +
@@ -471,7 +444,6 @@ public class Member implements Serializable{
                 ", city='" + city + '\'' +
                 ", zipCode=" + zipCode +
                 ", address='" + address + '\'' +
-                ", carrierDate='" + carrierDate + '\'' +
                 ", email='" + email + '\'' +
                 ", status='" + status + '\'' +
                 ", receivedBy='" + receivedBy + '\'' +

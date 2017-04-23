@@ -19,17 +19,6 @@
 
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="ethnicity">Church Member ID</label>
-                            <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.communion.memberId" id="memberId"
-                                       class="form-control input-sm" placeholder="Enter Church Member ID" required
-                                       ng-minlength="1"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Communion</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.communion.communionDate" id="communionDate" class="form-control input-sm"
@@ -38,17 +27,38 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="form-actions floatRight">
-                            <input type="submit" value="{{!ctrl.communion.id ? 'Add' : 'Update'}}"
-                                   class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
-                            <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm"
-                                    ng-disabled="myForm.$pristine">Reset Form
-                            </button>
-                        </div>
-                    </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Members</span></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>MEMBER NAME</th>
+                        <th width="100"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="m in ctrl.getAllMembers()">
+                        <td>{{m.name}}</td>
+                        <td>
+                            <input type="checkbox" ng-model="ctrl.memberClicked" ng-click="ctrl.setMembers(m.id)">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-actions floatRight">
+                <button type="button" ng-click="ctrl.submit()" class="btn btn-success btn-sm"
+                        ng-disabled="myForm.$pristine">Add Communions
+                </button>
             </div>
         </div>
     </div>

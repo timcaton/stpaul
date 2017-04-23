@@ -155,14 +155,13 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
             MemberService.getMember(id).then(
                 function (member) {
                     self.member = member;
+                    HouseholdService.getHousehold(self.member.householdId).then(
+                        function (household) {
+                            self.member.householdName = household.name;
+                        });
                 },
                 function (errResponse) {
                     console.error('Error while removing member ' + id + ', Error :' + errResponse.data);
-                }
-            );
-            HouseholdService.getHousehold(self.member.householdId).then(
-                function (householdName) {
-                    self.member.householdName = householdName;
                 }
             );
         }

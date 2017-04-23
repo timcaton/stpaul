@@ -5,8 +5,8 @@ angular.module('crudApp').controller('ContributionController',
 
         var self = this;
         self.contribution = {};
-        self.contributions=[];
-        $scope.member = {};
+        self.contributions = [];
+        self.members = [];
 
         self.submit = submit;
         self.getAllContributions = getAllContributions;
@@ -16,6 +16,8 @@ angular.module('crudApp').controller('ContributionController',
         self.editContribution = editContribution;
         self.reset = reset;
         self.doTheBack = doTheBack;
+        self.chooseMember = chooseMember;
+        self.getAllMembers = getAllMembers;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -26,6 +28,14 @@ angular.module('crudApp').controller('ContributionController',
 
         function doTheBack() {
             window.history.back();
+        }
+
+        function getAllMembers(){
+            return MemberService.getAllMembers();
+        }
+
+        function chooseMember(id) {
+            self.contribution.memberId = id;
         }
 
         function submit() {
@@ -46,61 +56,61 @@ angular.module('crudApp').controller('ContributionController',
                     function (response) {
                         console.log('Contribution created successfully');
                         self.successMessage = 'Contribution created successfully';
-                        self.errorMessage='';
+                        self.errorMessage = '';
                         self.done = true;
-                        self.contribution={};
+                        self.contribution = {};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
                         console.error('Error while creating Contribution');
                         self.errorMessage = 'Error while creating Contribution: ' + errResponse.data.errorMessage;
-                        self.successMessage='';
+                        self.successMessage = '';
                     }
                 );
         }
 
 
-        function updateContribution(contribution, id){
+        function updateContribution(contribution, id) {
             console.log('About to update contribution');
             ContributionService.updateContribution(contribution, id)
                 .then(
-                    function (response){
+                    function (response) {
                         console.log('Contribution updated successfully');
-                        self.successMessage='Contribution updated successfully';
-                        self.errorMessage='';
+                        self.successMessage = 'Contribution updated successfully';
+                        self.errorMessage = '';
                         self.done = true;
                         $scope.myForm.$setPristine();
                     },
-                    function(errResponse){
+                    function (errResponse) {
                         console.error('Error while updating Contribution');
-                        self.errorMessage='Error while updating Contribution '+errResponse.data;
-                        self.successMessage='';
+                        self.errorMessage = 'Error while updating Contribution ' + errResponse.data;
+                        self.successMessage = '';
                     }
                 );
         }
 
 
-        function removeContribution(id){
-            console.log('About to remove Contribution with id '+id);
+        function removeContribution(id) {
+            console.log('About to remove Contribution with id ' + id);
             ContributionService.removeContribution(id)
                 .then(
-                    function(){
-                        console.log('Contribution '+id + ' removed successfully');
+                    function () {
+                        console.log('Contribution ' + id + ' removed successfully');
                     },
-                    function(errResponse){
-                        console.error('Error while removing contribution '+id +', Error :'+errResponse.data);
+                    function (errResponse) {
+                        console.error('Error while removing contribution ' + id + ', Error :' + errResponse.data);
                     }
                 );
         }
 
 
-        function getAllContributions(){
+        function getAllContributions() {
             return ContributionService.getAllContributions();
         }
 
         function editContribution(id) {
-            self.successMessage='';
-            self.errorMessage='';
+            self.successMessage = '';
+            self.errorMessage = '';
             ContributionService.getContribution(id).then(
                 function (contribution) {
                     self.contribution = contribution;
@@ -110,13 +120,13 @@ angular.module('crudApp').controller('ContributionController',
                 }
             );
         }
-        function reset(){
-            self.successMessage='';
-            self.errorMessage='';
-            self.contribution={};
+
+        function reset() {
+            self.successMessage = '';
+            self.errorMessage = '';
+            self.contribution = {};
             $scope.myForm.$setPristine(); //reset Form
         }
     }
-
 
     ]);

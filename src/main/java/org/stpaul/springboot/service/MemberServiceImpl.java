@@ -20,8 +20,9 @@ public class MemberServiceImpl implements MemberService{
 		return memberRepository.findOne(id);
 	}
 
+	@Override
 	public Member findByName(String name) {
-		return memberRepository.findByName(name);
+		return null;
 	}
 
 	public void saveMember(Member member) {
@@ -45,7 +46,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	public boolean isMemberExist(Member member) {
-		return findByName(member.getName()) != null;
+
+		if(member.getId() != null) {
+			return true;
+		}
+		else return false;
 	}
 
 }

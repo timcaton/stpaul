@@ -191,6 +191,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller:'ContributionController',
             controllerAs:'ctrl',
             resolve: {
+                members: function ($q, MemberService) {
+                    console.log('Load all members');
+                    var deferred = $q.defer();
+                    MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                },
                 contributions: function ($q, ContributionService) {
                     console.log('Load all contributions');
                     var deferred = $q.defer();
@@ -206,6 +212,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller:'CommunionController',
             controllerAs:'ctrl',
             resolve: {
+                members: function ($q, MemberService) {
+                    console.log('Load all members');
+                    var deferred = $q.defer();
+                    MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                    return deferred.promise;
+                },
                 communions: function ($q, CommunionService) {
                     console.log('Load all contributions');
                     var deferred = $q.defer();

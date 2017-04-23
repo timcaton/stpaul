@@ -46,6 +46,9 @@ public class CommunionServiceImpl implements CommunionService{
     }
 
     public boolean isCommunionExist(Communion communion) {
-        return findById(communion.getMemberId()) != null;
+        if(communion.getId() != null) {
+            return true;
+        }
+        else return false;
     }
 }

@@ -46,6 +46,7 @@ public class MarriageServiceImpl implements MarriageService{
     }
 
     public boolean isMarriageExist(Marriage marriage) {
+
         return findById(marriage.getSpouse1()) != null;
     }
 }

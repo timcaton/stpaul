@@ -6,7 +6,9 @@ angular.module('crudApp').controller('CommunionController',
         var self = this;
         self.communion = {};
         self.communions=[];
-        $scope.member = {};
+        self.membersToSend = [];
+        self.members = [];
+        self.memberClicked = false;
 
         self.submit = submit;
         self.getAllCommunions = getAllCommunions;
@@ -16,6 +18,8 @@ angular.module('crudApp').controller('CommunionController',
         self.editCommunion = editCommunion;
         self.reset = reset;
         self.doTheBack = doTheBack;
+        self.getAllMembers = getAllMembers;
+        self.setMembers = setMembers;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -28,15 +32,38 @@ angular.module('crudApp').controller('CommunionController',
             window.history.back();
         }
 
-        function submit() {
-            console.log('Submitting');
-            if (self.communion.id === undefined || self.communion.id === null) {
-                console.log('Saving New Communion', self.communion);
-                createCommunion(self.communion);
-            } else {
-                updateCommunion(self.communion, self.communion.id);
-                console.log('Communion updated with id ', self.communion.id);
+        function getAllMembers(){
+            return MemberService.getAllMembers();
+        }
+
+        function setMembers(id) {
+            var i = 0;
+
+            self.membersToSend.forEach(function(communion){
+                if(communion.memberId == id){
+                    i++
+                }
+            });
+
+            if(i == 0 && self.memberClicked) {
+                var memberAndDate = {};
+                memberAndDate = {memberId: id, communionDate: self.communion.communionDate};
+                self.membersToSend.push(memberAndDate);
             }
+        }
+
+        function submit() {
+            self.membersToSend.forEach(function(communion) {
+                console.log('Submitting');
+                if(self.memberClicked)
+                if (communion.id === undefined || communion.id === null) {
+                    console.log('Saving New Communion', communion);
+                    createCommunion(communion);
+                } else {
+                    updateCommunion(self.communion, self.communion.id);
+                    console.log('Communion updated with id ', self.communion.id);
+                }
+            });
         }
 
         function createCommunion(communion) {

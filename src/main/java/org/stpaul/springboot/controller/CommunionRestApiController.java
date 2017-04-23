@@ -81,7 +81,7 @@ public class CommunionRestApiController {
                     HttpStatus.NOT_FOUND);
         }
 
-        currentCommunion.setId(communion.getId());
+//        currentCommunion.setId(communion.getId());
         currentCommunion.setMemberId(communion.getMemberId());
         currentCommunion.setCommunionDate(communion.getCommunionDate());
 

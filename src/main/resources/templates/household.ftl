@@ -32,9 +32,15 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="ethnicity">Household Type</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.household.householdType" id="householdType"
-                                       class="form-control input-sm" placeholder="Enter type of Household" required
-                                       ng-minlength="1"/>
+                                <select required class="form-control" ng-model="ctrl.household.householdType" id="householdType">
+                                    <option value="">--Select a Household Type--</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Adult/Children">Adult/Children</option>
+                                    <option value="Adult Only">Adult Only</option>
+                                </select>
                             </div>
                         </div>
                     </div>

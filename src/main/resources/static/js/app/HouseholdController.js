@@ -14,6 +14,7 @@ angular.module('crudApp').controller('HouseholdController',
         self.updateHousehold = updateHousehold;
         self.removeHousehold = removeHousehold;
         self.editHousehold = editHousehold;
+        self.doTheBack = doTheBack;
         self.reset = reset;
 
         self.successMessage = '';
@@ -22,6 +23,10 @@ angular.module('crudApp').controller('HouseholdController',
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
+
+        function doTheBack() {
+            window.history.back();
+        }
 
         function submit() {
             console.log('Submitting');

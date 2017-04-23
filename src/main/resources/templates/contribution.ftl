@@ -9,6 +9,34 @@
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Members</span></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ENVELOPE ID</th>
+                        <th>MEMBER NAME</th>
+                        <th width="100"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="m in ctrl.getAllMembers()">
+                        <td>{{m.envelopeId}}</td>
+                        <td>{{m.name}}</td>
+                        <td>
+                            <button type="button" ng-click="ctrl.chooseMember(m.id)" class="btn btn-success custom-width">
+                                Choose
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">Contributions</span></div>
         <div class="panel-body">
             <div class="formcontainer">
@@ -27,15 +55,15 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="guestId">Guest ID</label>
-                            <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.contribution.guestId" id="guestId" class="form-control input-sm"
-                                       placeholder="Enter Guest ID" ng-minlength="1"/>
-                            </div>
-                        </div>
-                    </div>
+                    <#--<div class="row">-->
+                        <#--<div class="form-group col-md-12">-->
+                            <#--<label class="col-md-2 control-label" for="guestId">Guest ID</label>-->
+                            <#--<div class="col-md-7">-->
+                                <#--<input type="text" ng-model="ctrl.contribution.guestId" id="guestId" class="form-control input-sm"-->
+                                       <#--placeholder="Enter Guest ID" ng-minlength="1"/>-->
+                            <#--</div>-->
+                        <#--</div>-->
+                    <#--</div>-->
 
                     <div class="row">
                         <div class="form-group col-md-12">
@@ -102,7 +130,6 @@
                     <tr>
                         <th>ID</th>
                         <th>CHURCH MEMBER ID</th>
-                        <th>GUEST ID</th>
                         <th>PURPOSE</th>
                         <th>DATE</th>
                         <th>METHOD</th>
@@ -115,9 +142,8 @@
                     <tr ng-repeat="c in ctrl.getAllContributions()">
                         <td>{{c.id}}</td>
                         <td>{{c.memberId}}</td>
-                        <td>{{c.guestId}}</td>
-                        <td>{{c.contributionDate}}</td>
                         <td>{{c.purpose}}</td>
+                        <td>{{c.contributionDate}}</td>
                         <td>{{c.method}}</td>
                         <td>{{c.amount}}</td>
                         <td>

@@ -64,10 +64,13 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="status">Status</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.status" id="status"
-                                       class="form-control input-sm"
-                                       placeholder="Enter status Active, Inactive, or Shut-In" required
-                                       ng-minlength="3"/>
+                                <select required class="form-control" ng-model="ctrl.member.status" id="status">
+                                    <option value="">--Select a Status--</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Shut-In">Shut-In</option>
+                                    <option value="Deceased">Deceased</option>
+                                </select>
                             </div>
                         </div>
                     </div>

@@ -1,18 +1,21 @@
 package org.stpaul.springboot.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name="HOUSEHOLD")
+@Table(name="COMMUNION")
 public class Communion implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "MEMBER_ID")
     private Long memberId;
 
+    @NotNull
     @Column(name = "COMMUNION_DATE")
     private String communionDate;
 
