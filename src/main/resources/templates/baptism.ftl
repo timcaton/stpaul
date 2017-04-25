@@ -32,8 +32,8 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Baptism</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.baptismDate" id="dob" class="dob form-control input-sm"
-                                       placeholder="Enter Date of Baptism in mm/dd/yyyy format" required ng-minlength="10"
+                                <input type="date" ng-model="ctrl.baptism.baptismDate" id="dob" class="dob form-control input-sm"
+                                       placeholder="Enter Date of Baptism" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
                         </div>

@@ -33,5 +33,6 @@
         <script src="js/app/ContributionController.js"></script>
         <script src="js/app/CommunionService.js"></script>
         <script src="js/app/CommunionController.js"></script>
+        <script src="js/app/ReportController.js"></script>
     </body>
 </html>

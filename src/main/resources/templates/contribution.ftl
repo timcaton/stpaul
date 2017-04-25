@@ -69,8 +69,8 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Contribution</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.contribution.contributionDate" id="contributionDate" class="form-control input-sm"
-                                       placeholder="Enter Date of Contribution in mm/dd/yyyy format" required ng-minlength="10"
+                                <input type="date" ng-model="ctrl.contribution.contributionDate" id="contributionDate" class="form-control input-sm"
+                                       placeholder="Enter Date of Contribution" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="amount">Amount</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.contribution.amount" id="amount"
+                                <input type="number" ng-model="ctrl.contribution.amount" id="amount"
                                        class="form-control input-sm" placeholder="Enter Amount of Contribution"/>
                             </div>
                         </div>

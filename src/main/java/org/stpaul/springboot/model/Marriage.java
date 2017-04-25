@@ -2,6 +2,7 @@ package org.stpaul.springboot.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name="MARRIAGE")
@@ -17,7 +18,7 @@ public class Marriage implements Serializable {
     private Long spouse2;
 
     @Column(name = "MARRIAGE_DATE")
-    private String marriageDate;
+    private Date marriageDate;
 
     @Column(name = "MARRIAGE_PLACE")
     private String marriagePlace;
@@ -35,7 +36,7 @@ public class Marriage implements Serializable {
     private String licenseNumber;
 
     @Column(name = "RETURN_DATE")
-    private String returnDate;
+    private Date returnDate;
 
     @Column(name = "MARRIAGE_COMMENT")
     private String marriageComment;
@@ -64,11 +65,11 @@ public class Marriage implements Serializable {
         this.spouse2 = spouse2;
     }
 
-    public String getMarriageDate() {
+    public Date getMarriageDate() {
         return marriageDate;
     }
 
-    public void setMarriageDate(String marriageDate) {
+    public void setMarriageDate(Date marriageDate) {
         this.marriageDate = marriageDate;
     }
 
@@ -112,11 +113,11 @@ public class Marriage implements Serializable {
         this.licenseNumber = licenseNumber;
     }
 
-    public String getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(String returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 

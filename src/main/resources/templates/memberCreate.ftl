@@ -53,8 +53,8 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Birth</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
-                                       placeholder="Enter DOB in mm/dd/yyyy format" required ng-minlength="10"
+                                <input type="date" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
+                                       placeholder="Enter DOB" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
                         </div>

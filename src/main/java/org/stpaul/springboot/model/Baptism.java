@@ -2,6 +2,7 @@ package org.stpaul.springboot.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name="BAPTISM")
@@ -14,7 +15,7 @@ public class Baptism implements Serializable {
     private Long memberId;
 
     @Column(name = "BAPTISM_DATE")
-    private String baptismDate;
+    private Date baptismDate;
 
     @Column(name = "BAPTISM_LOCATION")
     private String baptismLocation;
@@ -53,11 +54,11 @@ public class Baptism implements Serializable {
         this.memberId = memberId;
     }
 
-    public String getBaptismDate() {
+    public Date getBaptismDate() {
         return baptismDate;
     }
 
-    public void setBaptismDate(String baptismDate) {
+    public void setBaptismDate(Date baptismDate) {
         this.baptismDate = baptismDate;
     }
 

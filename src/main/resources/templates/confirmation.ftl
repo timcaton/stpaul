@@ -24,8 +24,6 @@
                             <label class="col-md-2 control-label" for="title">Church Member Name</label>
                             <div class="col-md-7">
                                 <p>{{member.name}}</p>
-                            <#--<input type="text"  ng-model="ctrl.confirmation.memberName" id="memberName" class="form-control input-sm"-->
-                            <#--placeholder="getMemberName(memberId)" required ng-minlength="1"/>-->
                             </div>
                         </div>
                     </div>
@@ -34,7 +32,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Confirmation</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.confirmationDate" id="confirmationDate" class="form-control input-sm"
+                                <input type="date" ng-model="ctrl.confirmation.confirmationDate" id="confirmationDate" class="form-control input-sm"
                                        placeholder="Enter Date of Confirmation in mm/dd/yyyy format" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -96,7 +94,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="parentName2">Examination Date</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.examinationDate" id="examinationDate"
+                                <input type="date" ng-model="ctrl.confirmation.examinationDate" id="examinationDate"
                                        class="form-control input-sm" placeholder="Enter Examination Date"/>
                             </div>
                         </div>

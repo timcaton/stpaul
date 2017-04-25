@@ -2,6 +2,7 @@ package org.stpaul.springboot.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name="BAPTISM")
@@ -23,7 +24,7 @@ public class Guest implements Serializable {
     private String homeChurch;
 
     @Column(name = "COMMUNION_DATE")
-    private String communionDate;
+    private Date communionDate;
 
     @Column(name = "GUEST_EMAIL")
     private String guestEmail;
@@ -71,11 +72,11 @@ public class Guest implements Serializable {
         this.homeChurch = homeChurch;
     }
 
-    public String getCommunionDate() {
+    public Date getCommunionDate() {
         return communionDate;
     }
 
-    public void setCommunionDate(String communionDate) {
+    public void setCommunionDate(Date communionDate) {
         this.communionDate = communionDate;
     }
 

@@ -1,7 +1,10 @@
 package org.stpaul.springboot.model;
 
+import org.h2.api.DatabaseEventListener;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name="CONFIRMATION")
@@ -14,7 +17,7 @@ public class Confirmation implements Serializable {
     private Long memberId;
 
     @Column(name = "CONFIRMATION_DATE")
-    private String confirmationDate;
+    private Date confirmationDate;
 
     @Column(name = "CONFIRMATION_LOCATION")
     private String confirmationLocation;
@@ -50,11 +53,11 @@ public class Confirmation implements Serializable {
         this.memberId = memberId;
     }
 
-    public String getConfirmationDate() {
+    public Date getConfirmationDate() {
         return confirmationDate;
     }
 
-    public void setConfirmationDate(String confirmationDate) {
+    public void setConfirmationDate(Date confirmationDate) {
         this.confirmationDate = confirmationDate;
     }
 

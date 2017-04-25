@@ -33,8 +33,8 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Marriage</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.marriage.marriageDate" id="marriageDate" class="form-control input-sm"
-                                       placeholder="Enter Date of Marriage in mm/dd/yyyy format" required ng-minlength="10"
+                                <input type="date" ng-model="ctrl.marriage.marriageDate" id="marriageDate" class="form-control input-sm"
+                                       placeholder="Enter Date of Marriage" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
                         </div>

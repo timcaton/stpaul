@@ -3,6 +3,7 @@ package org.stpaul.springboot.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Date;
 
 @Entity
 @Table(name="CONTRIBUTION")
@@ -24,7 +25,7 @@ public class Contribution implements Serializable {
     private String method;
 
     @Column(name = "CONTRIBUTION_DATE")
-    private String contributionDate;
+    private Date contributionDate;
 
     @Column(name = "AMOUNT")
     private BigDecimal amount;
@@ -69,11 +70,11 @@ public class Contribution implements Serializable {
         this.method = method;
     }
 
-    public String getContributionDate() {
+    public Date getContributionDate() {
         return contributionDate;
     }
 
-    public void setContributionDate(String contributionDate) {
+    public void setContributionDate(Date contributionDate) {
         this.contributionDate = contributionDate;
     }
 

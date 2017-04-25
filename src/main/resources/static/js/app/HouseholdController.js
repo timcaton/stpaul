@@ -6,16 +6,16 @@ angular.module('crudApp').controller('HouseholdController',
         var self = this;
         self.household = {};
         self.households=[];
-        $scope.member = {};
 
+        self.doTheBack = doTheBack;
+        self.reset = reset;
         self.submit = submit;
         self.getAllHouseholds = getAllHouseholds;
         self.createHousehold = createHousehold;
         self.updateHousehold = updateHousehold;
         self.removeHousehold = removeHousehold;
         self.editHousehold = editHousehold;
-        self.doTheBack = doTheBack;
-        self.reset = reset;
+
 
         self.successMessage = '';
         self.errorMessage = '';

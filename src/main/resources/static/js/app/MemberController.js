@@ -110,6 +110,7 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
 
         function updateMember(member, id){
             console.log('About to update member');
+            member.householdId = member.householdId.id;
             MemberService.updateMember(member, id)
                 .then(
                     function (response){

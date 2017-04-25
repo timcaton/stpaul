@@ -8,7 +8,7 @@ angular.module('crudApp').controller('CommunionController',
         self.communions=[];
         self.membersToSend = [];
         self.members = [];
-        self.memberClicked = false;
+        self.isMemberSet = [];
 
         self.submit = submit;
         self.getAllCommunions = getAllCommunions;
@@ -20,6 +20,8 @@ angular.module('crudApp').controller('CommunionController',
         self.doTheBack = doTheBack;
         self.getAllMembers = getAllMembers;
         self.setMembers = setMembers;
+        self.removeMember = removeMember;
+        self.checkMemberIsChecked = checkMemberIsChecked;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -36,26 +38,49 @@ angular.module('crudApp').controller('CommunionController',
             return MemberService.getAllMembers();
         }
 
+        function checkMemberIsChecked(id) {
+            for(var i=0; i < self.isMemberSet.length; i++) {
+                if(self.isMemberSet[i].memberId == id) {
+                    return true;
+                }
+            }
+        }
+
+        function removeMember(id) {
+            for(var i=0; i < self.membersToSend.length; i++) {
+                if(self.membersToSend[i].memberId == id) {
+                    self.membersToSend.splice(i, 1)
+                }
+            }
+            for(var i=0; i < self.isMemberSet.length; i++) {
+                if(self.isMemberSet[i].memberId == id) {
+                    self.isMemberSet.splice(i, 1)
+                }
+            }
+        }
+
         function setMembers(id) {
             var i = 0;
 
             self.membersToSend.forEach(function(communion){
                 if(communion.memberId == id){
-                    i++
+                    i++;
+                    self.memberClicked = false;
                 }
             });
 
-            if(i == 0 && self.memberClicked) {
+            if(i == 0) {
                 var memberAndDate = {};
                 memberAndDate = {memberId: id, communionDate: self.communion.communionDate};
                 self.membersToSend.push(memberAndDate);
+                self.isMemberSet.push({memberId: id});
             }
         }
 
         function submit() {
             self.membersToSend.forEach(function(communion) {
+                self.isMemberSet = [];
                 console.log('Submitting');
-                if(self.memberClicked)
                 if (communion.id === undefined || communion.id === null) {
                     console.log('Saving New Communion', communion);
                     createCommunion(communion);
@@ -76,6 +101,7 @@ angular.module('crudApp').controller('CommunionController',
                         self.errorMessage='';
                         self.done = true;
                         self.communion={};
+                        self.membersToSend = [];
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
@@ -96,6 +122,7 @@ angular.module('crudApp').controller('CommunionController',
                         self.successMessage='Communion updated successfully';
                         self.errorMessage='';
                         self.done = true;
+                        self.membersToSend = [];
                         $scope.myForm.$setPristine();
                     },
                     function(errResponse){

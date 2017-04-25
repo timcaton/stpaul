@@ -225,6 +225,69 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
+            })
+
+            .state('report', {
+                url: '/report',
+                templateUrl: 'partials/report',
+                controller:'ReportController',
+                controllerAs:'ctrl',
+                resolve: {
+                    members: function ($q, MemberService) {
+                        console.log('Load all members');
+                        var deferred = $q.defer();
+                        MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    contributions: function ($q, ContributionService) {
+                        console.log('Load all contributions');
+                        var deferred = $q.defer();
+                        ContributionService.loadAllContributions().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    communions: function ($q, CommunionService) {
+                        console.log('Load all contributions');
+                        var deferred = $q.defer();
+                        CommunionService.loadAllCommunions().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    guests: function ($q, GuestService) {
+                        console.log('Load all guests');
+                        var deferred = $q.defer();
+                        GuestService.loadAllGuests().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    marriages: function ($q, MarriageService) {
+                        console.log('Load all marriages');
+                        var deferred = $q.defer();
+                        MarriageService.loadAllMarriages().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    funerals: function ($q, FuneralService) {
+                        console.log('Load all funerals');
+                        var deferred = $q.defer();
+                        FuneralService.loadAllFunerals().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    confirmations: function ($q, ConfirmationService) {
+                        console.log('Load all confirmations');
+                        var deferred = $q.defer();
+                        ConfirmationService.loadAllConfirmations().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    households: function ($q, HouseholdService) {
+                        console.log('Load all households');
+                        var deferred = $q.defer();
+                        HouseholdService.loadAllHouseholds().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    baptisms: function ($q, BaptismService) {
+                        console.log('Load all baptisms');
+                        var deferred = $q.defer();
+                        BaptismService.loadAllBaptisms().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
             });
         $urlRouterProvider.otherwise('/');
     }]);

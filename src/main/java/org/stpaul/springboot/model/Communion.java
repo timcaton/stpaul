@@ -3,6 +3,7 @@ package org.stpaul.springboot.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name="COMMUNION")
@@ -17,7 +18,7 @@ public class Communion implements Serializable {
 
     @NotNull
     @Column(name = "COMMUNION_DATE")
-    private String communionDate;
+    private Date communionDate;
 
     public Long getId() {
         return id;
@@ -35,11 +36,11 @@ public class Communion implements Serializable {
         this.memberId = memberId;
     }
 
-    public String getCommunionDate() {
+    public Date getCommunionDate() {
         return communionDate;
     }
 
-    public void setCommunionDate(String communionDate) {
+    public void setCommunionDate(Date communionDate) {
         this.communionDate = communionDate;
     }
 

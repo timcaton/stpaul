@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name="MEMBER")
@@ -41,7 +42,7 @@ public class Member implements Serializable{
 	private Long householdId;
 
 	@Column(name = "DOB")
-	private String dob;
+	private Date dob;
 
 	@Column(name = "GENDER")
 	private String gender;
@@ -180,11 +181,11 @@ public class Member implements Serializable{
         this.householdId = householdId;
     }
 
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 

@@ -60,10 +60,10 @@
 
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="communionDate">Communion Date</label>
+                            <label class="col-md-2 control-label" for="communionDate">Initial Communion Date</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.guest.communionDate" id="communionDate" class="form-control input-sm"
-                                       placeholder="Enter Date of Guest Communion in mm/dd/yyyy format" required ng-minlength="10"
+                                <input type="date" ng-model="ctrl.guest.communionDate" id="communionDate" class="form-control input-sm"
+                                       placeholder="Enter Date of Guest Communion" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
                         </div>

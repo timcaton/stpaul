@@ -21,8 +21,8 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Communion</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.communion.communionDate" id="communionDate" class="form-control input-sm"
-                                       placeholder="Enter Date of Communion in mm/dd/yyyy format" required ng-minlength="10"
+                                <input type="date" ng-model="ctrl.communion.communionDate" id="communionDate" class="form-control input-sm"
+                                       placeholder="Enter Date of Communion" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
                         </div>
@@ -41,24 +41,31 @@
                     <tr>
                         <th>MEMBER NAME</th>
                         <th width="100"></th>
+                        <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="m in ctrl.getAllMembers()">
                         <td>{{m.name}}</td>
                         <td>
-                            <input type="checkbox" ng-model="ctrl.memberClicked" ng-click="ctrl.setMembers(m.id)">
+                            <button type="button" ng-click="ctrl.setMembers(m.id)" ng-disabled="ctrl.checkMemberIsChecked(m.id) || !ctrl.communion.communionDate" class="btn btn-success btn-sm">Add To List
+                            </button>
                         </td>
+                        <td>
+                            <button type="button" ng-click="ctrl.removeMember(m.id)" ng-disabled="!ctrl.checkMemberIsChecked(m.id) || !ctrl.communion.communionDate" class="btn btn-danger btn-sm">Remove From List
+                            </button>
+                        </td>
+
                     </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-actions floatRight">
-                <button type="button" ng-click="ctrl.submit()" class="btn btn-success btn-sm"
-                        ng-disabled="myForm.$pristine">Add Communions
-                </button>
+            <div class="row">
+                <div class="form-actions floatRight">
+                    <button type="button" ng-click="ctrl.submit()" class="btn btn-primary btn-sm"
+                            ng-disabled="myForm.$pristine || !ctrl.communion.communionDate">Add Communions
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -70,23 +77,15 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
                         <th>CHURCH MEMBER ID</th>
                         <th>DATE OF COMMUNION</th>
-                        <th width="100"></th>
                         <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="c in ctrl.getAllCommunions()">
-                        <td>{{c.id}}</td>
                         <td>{{c.memberId}}</td>
                         <td>{{c.communionDate}}</td>
-                        <td>
-                            <button type="button" ng-click="ctrl.editCommunion(c.id)" class="btn btn-success custom-width">
-                                Edit
-                            </button>
-                        </td>
                         <td>
                             <button type="button" ng-click="ctrl.removeCommunion(c.id)"
                                     class="btn btn-danger custom-width">Remove
