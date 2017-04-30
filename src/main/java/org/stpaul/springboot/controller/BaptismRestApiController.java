@@ -87,8 +87,6 @@ public class BaptismRestApiController {
             currentBaptism.setBaptismOfficiant(baptism.getBaptismOfficiant());
             currentBaptism.setSponsorName(baptism.getSponsorName());
             currentBaptism.setWitnessName(baptism.getWitnessName());
-            currentBaptism.setParentName1(baptism.getParentName1());
-            currentBaptism.setParentName2(baptism.getParentName2());
             currentBaptism.setBaptismComment(baptism.getBaptismComment());
 
             baptismService.updateBaptism(currentBaptism);

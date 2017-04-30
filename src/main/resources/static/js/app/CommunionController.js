@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('CommunionController',
+angular.module('stPaul').controller('CommunionController',
     ['CommunionService', 'MemberService', '$scope',  function( CommunionService, MemberService, $scope) {
 
         var self = this;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('HouseholdController',
+angular.module('stPaul').controller('HouseholdController',
     ['HouseholdService', 'MemberService', '$scope',  function( HouseholdService, MemberService, $scope) {
 
         var self = this;

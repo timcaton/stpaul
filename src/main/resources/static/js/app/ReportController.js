@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('ReportController', ['MemberService', 'HouseholdService', 'BaptismService', 'CommunionService', 'ConfirmationService', 'ContributionService', 'FuneralService', 'GuestService', 'MarriageService', '$scope', '$uibModal',
+angular.module('stPaul').controller('ReportController', ['MemberService', 'HouseholdService', 'BaptismService', 'CommunionService', 'ConfirmationService', 'ContributionService', 'FuneralService', 'GuestService', 'MarriageService', '$scope', '$uibModal',
     function( MemberService, HouseholdService, BaptismService, CommunionService, ConfirmationService, ContributionService, FuneralService, GuestService, MarriageService, $scope, $modal) {
 
         var self = this;
@@ -30,17 +30,11 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
         self.getAllGuests = getAllGuests;
         self.getAllMarriages = getAllMarriages;
         self.doTheBack = doTheBack;
-        self.openBaptismModal = openBaptismModal;
-        self.openConfirmationModal = openConfirmationModal;
-        self.openFuneralModal = openFuneralModal;
-        self.openMarriageModal = openMarriageModal;
         self.reset = reset;
         self.editMember = editMember;
         self.editBaptism = editBaptism;
         self.editFuneral = editFuneral;
         self.editConfirmation = editConfirmation;
-        self.serviceContributions = serviceContributions;
-        self.monthContributions = monthContributions;
 
         self.successMessage = '';
         self.errorMessage = '';

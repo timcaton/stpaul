@@ -68,7 +68,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="status">Status</label>
                             <div class="col-md-7">
-                                <select required class="form-control" ng-model="ctrl.member.status" id="status">
+                                <select required class="form-control" ng-model="ctrl.member.memberType" id="memberType">
                                     <option value="">--Select a Status--</option>
                                     <option value="Active">Active</option>
                                     <option value="Inactive">Inactive</option>

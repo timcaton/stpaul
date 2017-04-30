@@ -86,7 +86,6 @@ public class ConfirmationRestApiController {
         currentConfirmation.setConfirmationLocation(confirmation.getConfirmationLocation());
         currentConfirmation.setConfirmationOfficiant(confirmation.getConfirmationOfficiant());
         currentConfirmation.setConfirmationComment(confirmation.getConfirmationComment());
-        currentConfirmation.setConfirmationStatus(confirmation.getConfirmationStatus());
         currentConfirmation.setConfirmationVerse(confirmation.getConfirmationVerse());
         currentConfirmation.setExaminationDate(confirmation.getExaminationDate());
 

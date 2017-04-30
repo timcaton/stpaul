@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('FuneralController',
+angular.module('stPaul').controller('FuneralController',
     ['FuneralService', 'MemberService', '$scope', '$uibModalInstance',  function( FuneralService, MemberService, $scope,  modalInstance) {
 
         var self = this;

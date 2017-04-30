@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').factory('MemberService',
+angular.module('stPaul').factory('MemberService',
     ['$localStorage', '$http', '$q', 'urls',
         function ($localStorage, $http, $q, urls) {
 

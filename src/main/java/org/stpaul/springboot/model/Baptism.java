@@ -29,12 +29,6 @@ public class Baptism implements Serializable {
     @Column(name = "WITNESS_NAME")
     private String witnessName;
 
-    @Column(name = "PARENT_NAME_1")
-    private String parentName1;
-
-    @Column(name = "PARENT_NAME_2")
-    private String parentName2;
-
     @Column(name = "BAPTISM_COMMENT")
     private String baptismComment;
 
@@ -94,22 +88,6 @@ public class Baptism implements Serializable {
         this.witnessName = witnessName;
     }
 
-    public String getParentName1() {
-        return parentName1;
-    }
-
-    public void setParentName1(String parentName1) {
-        this.parentName1 = parentName1;
-    }
-
-    public String getParentName2() {
-        return parentName2;
-    }
-
-    public void setParentName2(String parentName2) {
-        this.parentName2 = parentName2;
-    }
-
     public String getBaptismComment() {
         return baptismComment;
     }
@@ -134,8 +112,6 @@ public class Baptism implements Serializable {
             return false;
         if (sponsorName != null ? !sponsorName.equals(baptism.sponsorName) : baptism.sponsorName != null) return false;
         if (witnessName != null ? !witnessName.equals(baptism.witnessName) : baptism.witnessName != null) return false;
-        if (parentName1 != null ? !parentName1.equals(baptism.parentName1) : baptism.parentName1 != null) return false;
-        if (parentName2 != null ? !parentName2.equals(baptism.parentName2) : baptism.parentName2 != null) return false;
         return baptismComment != null ? baptismComment.equals(baptism.baptismComment) : baptism.baptismComment == null;
     }
 
@@ -148,8 +124,6 @@ public class Baptism implements Serializable {
         result = 31 * result + (baptismOfficiant != null ? baptismOfficiant.hashCode() : 0);
         result = 31 * result + (sponsorName != null ? sponsorName.hashCode() : 0);
         result = 31 * result + (witnessName != null ? witnessName.hashCode() : 0);
-        result = 31 * result + (parentName1 != null ? parentName1.hashCode() : 0);
-        result = 31 * result + (parentName2 != null ? parentName2.hashCode() : 0);
         result = 31 * result + (baptismComment != null ? baptismComment.hashCode() : 0);
         return result;
     }
@@ -164,8 +138,6 @@ public class Baptism implements Serializable {
                 ", baptismOfficiant='" + baptismOfficiant + '\'' +
                 ", sponsorName='" + sponsorName + '\'' +
                 ", witnessName='" + witnessName + '\'' +
-                ", parentName1='" + parentName1 + '\'' +
-                ", parentName2='" + parentName2 + '\'' +
                 ", baptismComment='" + baptismComment + '\'' +
                 '}';
     }

@@ -24,9 +24,6 @@ public class Confirmation implements Serializable {
     
     @Column(name = "CONFIRMATION_COMMENT")
     private String confirmationComment;
-
-    @Column(name = "CONFIRMATION_STATUS")
-    private String confirmationStatus;
     
     @Column(name = "CONFIRMATION_OFFICIANT")
     private String confirmationOfficiant;
@@ -77,14 +74,6 @@ public class Confirmation implements Serializable {
         this.confirmationComment = confirmationComment;
     }
 
-    public String getConfirmationStatus() {
-        return confirmationStatus;
-    }
-
-    public void setConfirmationStatus(String confirmationStatus) {
-        this.confirmationStatus = confirmationStatus;
-    }
-
     public String getConfirmationOfficiant() {
         return confirmationOfficiant;
     }
@@ -124,8 +113,6 @@ public class Confirmation implements Serializable {
             return false;
         if (confirmationComment != null ? !confirmationComment.equals(that.confirmationComment) : that.confirmationComment != null)
             return false;
-        if (confirmationStatus != null ? !confirmationStatus.equals(that.confirmationStatus) : that.confirmationStatus != null)
-            return false;
         if (confirmationOfficiant != null ? !confirmationOfficiant.equals(that.confirmationOfficiant) : that.confirmationOfficiant != null)
             return false;
         if (confirmationVerse != null ? !confirmationVerse.equals(that.confirmationVerse) : that.confirmationVerse != null)
@@ -140,7 +127,6 @@ public class Confirmation implements Serializable {
         result = 31 * result + (confirmationDate != null ? confirmationDate.hashCode() : 0);
         result = 31 * result + (confirmationLocation != null ? confirmationLocation.hashCode() : 0);
         result = 31 * result + (confirmationComment != null ? confirmationComment.hashCode() : 0);
-        result = 31 * result + (confirmationStatus != null ? confirmationStatus.hashCode() : 0);
         result = 31 * result + (confirmationOfficiant != null ? confirmationOfficiant.hashCode() : 0);
         result = 31 * result + (confirmationVerse != null ? confirmationVerse.hashCode() : 0);
         result = 31 * result + (examinationDate != null ? examinationDate.hashCode() : 0);
@@ -155,7 +141,6 @@ public class Confirmation implements Serializable {
                 ", confirmationDate='" + confirmationDate + '\'' +
                 ", confirmationLocation='" + confirmationLocation + '\'' +
                 ", confirmationComment='" + confirmationComment + '\'' +
-                ", confirmationStatus='" + confirmationStatus + '\'' +
                 ", confirmationOfficiant='" + confirmationOfficiant + '\'' +
                 ", confirmationVerse='" + confirmationVerse + '\'' +
                 ", examinationDate='" + examinationDate + '\'' +

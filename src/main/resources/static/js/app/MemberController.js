@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('MemberController', ['MemberService', 'HouseholdService', '$scope', '$uibModal',
+angular.module('stPaul').controller('MemberController', ['MemberService', 'HouseholdService', '$scope', '$uibModal',
     function( MemberService, HouseholdService, $scope, $modal) {
 
         var self = this;
@@ -99,7 +99,9 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
 
         function updateMember(member, id){
             console.log('About to update member');
-            member.householdId = member.householdId.id;
+            if(member.householdId.id){
+                member.householdId = member.householdId.id;
+            }
             MemberService.updateMember(member, id)
                 .then(
                     function (response){
@@ -107,7 +109,7 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
                         self.successMessage='Member updated successfully';
                         self.errorMessage='';
                         self.done = true;
-                        // editMember(id);
+                        self.member = {};
                         $scope.myForm.$setPristine();
                     },
                     function(errResponse){

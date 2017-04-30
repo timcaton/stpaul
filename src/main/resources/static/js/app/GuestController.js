@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('GuestController',
+angular.module('stPaul').controller('GuestController',
     ['GuestService', 'MemberService', '$scope',  function( GuestService, MemberService, $scope) {
 
         var self = this;

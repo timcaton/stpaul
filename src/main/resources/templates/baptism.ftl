@@ -82,26 +82,6 @@
 
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="address">Parent Name</label>
-                            <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.parentName1" id="parentName1"
-                                       class="form-control input-sm" placeholder="Enter parent name"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="parentName2">Parent Name</label>
-                            <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.parentName2" id="parentName2"
-                                       class="form-control input-sm" placeholder="Enter parent name"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Baptism Comment</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.baptism.baptismComment" id="baptismComment"

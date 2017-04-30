@@ -25,10 +25,9 @@
                     <tr>
                         <th ts-criteria="householdId">HOUSEHOLD ID</th>
                         <th ts-criteria="id">MEMBER ID</th>
-                        <th ts-criteria="title">TITLE</th>
                         <th ts-criteria="name">NAME</th>
                         <th ts-criteria="dob">DATE OF BIRTH</th>
-                        <th ts-criteria="status">STATUS</th>
+                        <th ts-criteria="memberType">STATUS</th>
                         <th width="100"></th>
                     </tr>
                     </thead>
@@ -36,10 +35,9 @@
                     <tr ng-repeat="m in ctrl.getAllMembers()" ts-repeat>
                         <td>{{m.householdId}}</td>
                         <td>{{m.id}}</td>
-                        <td>{{m.title}}</td>
                         <td>{{m.name}}</td>
                         <td>{{m.dob}}</td>
-                        <td>{{m.status}}</td>
+                        <td>{{m.memberType}}</td>
                         <td>
                             <button type="button" ng-click="ctrl.editMember(m.id)" class="btn btn-success custom-width">
                                 Edit
@@ -65,7 +63,7 @@
                         <div class="form-group col-md-6">
                             <label class="col-md-4 control-label" for="title">Title</label>
                             <div class="col-md-7">
-                                <select required class="form-control" ng-model="ctrl.member.title" id="title">
+                                <select  class="form-control" ng-model="ctrl.member.title" id="title">
                                     <option value="">--Select a Title--</option>
                                     <option value="Active">Mr.</option>
                                     <option value="Inactive">Mrs.</option>
@@ -84,9 +82,19 @@
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-md-4 control-label" for="status">Status</label>
+                            <label class="col-md-4 control-label" for="title">Suffix</label>
                             <div class="col-md-7">
-                                <select required class="form-control" ng-model="ctrl.member.status" id="status">
+                                <input type="text" ng-model="ctrl.member.suffix" id="suffix" class="form-control input-sm"
+                                       placeholder="Enter suffix"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="memberType">Status</label>
+                            <div class="col-md-7">
+                                <select  class="form-control" ng-model="ctrl.member.memberType" id="memberType">
                                     <option value="">--Select a Status--</option>
                                     <option value="Active">Active</option>
                                     <option value="Inactive">Inactive</option>
@@ -96,9 +104,9 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="col-md-4 control-label" for="nickname">Nick Name</label>
+                            <label class="col-md-4 control-label" for="preferredNickname">Nick Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.nickname" id="nickname"
+                                <input type="text" ng-model="ctrl.member.preferredNickname" id="preferredNickname"
                                        class="form-control input-sm" placeholder="Enter nick name" 
                                        ng-minlength="0"/>
                             </div>
@@ -117,8 +125,13 @@
                         <div class="form-group col-md-6">
                             <label class="col-md-4 control-label" for="maritalStatus">Marital Status</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.maritalStatus" id="maritalStatus"
-                                       class="form-control input-sm" placeholder="Enter Marital Status"/>
+                                <select  class="form-control" ng-model="ctrl.member.maritalStatus" id="maritalStatus">
+                                    <option value="">--Select a Marital Status--</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -127,7 +140,7 @@
                         <div class="form-group col-md-6">
                             <label class="col-md-4 control-label" for="envelopeId">Envelope ID</label>
                             <div class="col-md-7">
-                                <input type="number" ng-model="ctrl.member.envelopeId" id="envelopeId"
+                                <input type="number" ng-model="ctrl.member.envelope" id="envelope"
                                        class="form-control input-sm" placeholder="Enter envelope ID." 
                                        />
                             </div>
@@ -172,18 +185,17 @@
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-md-4 control-label" for="state">State</label>
+                            <label class="col-md-4 control-label" for="stateProvince">State</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.state" id="state"
-                                       class="state form-control input-sm" placeholder="Enter state"/>
+                                <input type="text" ng-model="ctrl.member.stateProvince" id="stateProvince"
+                                       class="stateProvince form-control input-sm" placeholder="Enter state"/>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="col-md-4 control-label" for="zipCode">Zip Code</label>
+                            <label class="col-md-4 control-label" for="zip">Zip Code</label>
                             <div class="col-md-7">
-                                <input type="number" ng-model="ctrl.member.zipCode" id="zipCode"
-                                       class="form-control input-sm" placeholder="Enter zip code."
-                                       />
+                                <input type="number" ng-model="ctrl.member.zip" id="zip"
+                                       class="form-control input-sm" placeholder="Enter zip code." maxlength="5"/>
                             </div>
                         </div>
                     </div>
@@ -243,7 +255,7 @@
                             <label class="col-md-4 control-label" for="householdId">Choose New Household</label>
                         <div class="col-md-7">
                                 <select class="form-control" ng-model="ctrl.member.householdId" id="householdId"
-                                        ng-options="h.name for h in ctrl.getAllHouseholds() track by h.id" required>
+                                        ng-options="h.name for h in ctrl.getAllHouseholds() track by h.id" >
                                         <option value="">--Select a Household--</option>
                                 </select>
                             </div>
@@ -290,6 +302,23 @@
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.childrenNames" id="childrenNames"
                                        class="form-control input-sm" placeholder="Enter Children Names"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" >Parent Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.parentName1" id="parentName1"
+                                       class="form-control input-sm" placeholder="Parent Name"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Parent Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.parentName2" id="parentName2"
+                                       class="form-control input-sm" placeholder="Parent Name"/>
                             </div>
                         </div>
                     </div>
@@ -370,6 +399,13 @@
 
                     <div class="row">
                         <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="churchBackground">Church Background</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.churchBackground" id="churchBackground"
+                                       class="form-control input-sm" placeholder="Church Background"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label class="col-md-4 control-label" for="memberInfo">Other Member Info</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.memberInfo" id="memberInfo"
@@ -381,7 +417,7 @@
                     <div class="row">
                         <div class="form-actions floatRight">
                             <input type="submit" value="{{'Update'}}"
-                                   class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
+                                   class="btn btn-primary btn-sm">
                             <button type="button" ng-click="ctrl.removeMember(m.id)"
                                     class="btn btn-danger btn-sm">Remove
                             </button>

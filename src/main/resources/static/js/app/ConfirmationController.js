@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('ConfirmationController',
+angular.module('stPaul').controller('ConfirmationController',
     ['ConfirmationService', 'MemberService', '$scope', '$uibModalInstance', function( ConfirmationService, MemberService, $scope, modalInstance) {
 
         var self = this;

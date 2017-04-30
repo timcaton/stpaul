@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpringBootCRUDApplication.iml" filepath="$PROJECT_DIR$/SpringBootCRUDApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StPaul.iml" filepath="$PROJECT_DIR$/StPaul.iml" />
     </modules>
   </component>
 </project>

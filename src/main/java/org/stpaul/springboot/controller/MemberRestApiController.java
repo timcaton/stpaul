@@ -87,26 +87,20 @@ public class MemberRestApiController {
 		}
 
 		currentMember.setName(member.getName());
-		currentMember.setBaptismId(member.getBaptismId());
-		currentMember.setMarriageId(member.getMarriageId());
-		currentMember.setFuneralId(member.getFuneralId());
-		currentMember.setConfirmationId(member.getConfirmationId());
 		currentMember.setMemberInfo(member.getMemberInfo());
-		currentMember.setContributionId(member.getContributionId());
-		currentMember.setEnvelopeId(member.getEnvelopeId());
 		currentMember.setHouseholdId(member.getHouseholdId());
 		currentMember.setDob(member.getDob());
 		currentMember.setGender(member.getGender());
-		currentMember.setNickname(member.getNickname());
+		currentMember.setPreferredNickname(member.getPreferredNickname());
 		currentMember.setTitle(member.getTitle());
 		currentMember.setEthnicity(member.getEthnicity());
 		currentMember.setSequenceInHousehold(member.getSequenceInHousehold());
-		currentMember.setState(member.getState());
+		currentMember.setStateProvince(member.getStateProvince());
 		currentMember.setCity(member.getCity());
-		currentMember.setZipCode(member.getZipCode());
+		currentMember.setZip(member.getZip());
 		currentMember.setAddress(member.getAddress());
 		currentMember.setEmail(member.getEmail());
-		currentMember.setStatus(member.getStatus());
+		currentMember.setMemberType(member.getMemberType());
 		currentMember.setReceivedBy(member.getReceivedBy());
         currentMember.setRemovedBy(member.getRemovedBy());
         currentMember.setMaritalStatus(member.getMaritalStatus());
@@ -115,6 +109,13 @@ public class MemberRestApiController {
         currentMember.setNumberOfChildren(member.getNumberOfChildren());
         currentMember.setChildrenLiving(member.getChildrenLiving());
         currentMember.setChildrenNames(member.getChildrenNames());
+        currentMember.setSuffix(member.getSuffix());
+        currentMember.setChurchBackground(member.getChurchBackground());
+        currentMember.setMarriageDate(member.getMarriageDate());
+        currentMember.setSpousesName(member.getSpousesName());
+        currentMember.setParentName1(member.getParentName1());
+		currentMember.setParentName2(member.getParentName2());
+		currentMember.setEnvelope(member.getEnvelope());
 
 		memberService.updateMember(currentMember);
 		return new ResponseEntity<Member>(currentMember, HttpStatus.OK);
