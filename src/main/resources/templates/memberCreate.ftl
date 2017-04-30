@@ -33,8 +33,12 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Title</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.title" id="title" class="form-control input-sm"
-                                       placeholder="Enter title Mr, Mrs, or Miss" required ng-minlength="2"/>
+                                <select required class="form-control" ng-model="ctrl.member.title" id="title">
+                                    <option value="">--Select a Title--</option>
+                                    <option value="Active">Mr.</option>
+                                    <option value="Inactive">Mrs.</option>
+                                    <option value="Shut-In">Miss</option>
+                                </select>
                             </div>
                         </div>
                     </div>

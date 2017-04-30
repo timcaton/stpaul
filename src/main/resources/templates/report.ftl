@@ -9,6 +9,29 @@
                 <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
                     <input type="hidden" ng-model="ctrl.home.id"/>
 
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-7">
+                                <a href="#/fullMemberReport">Full Member Report</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-7">
+                                <a href="#/serviceContributionReport">Service Contribution Report</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-7">
+                                <a href="#/monthContributionReport">Month Contribution Report</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

@@ -114,6 +114,7 @@ angular.module('crudApp').controller('ContributionController',
             ContributionService.getContribution(id).then(
                 function (contribution) {
                     self.contribution = contribution;
+                    self.contribution.contributionDate = new Date(moment(self.contribution.contributionDate));
                 },
                 function (errResponse) {
                     console.error('Error while removing contribution ' + id + ', Error :' + errResponse.data);

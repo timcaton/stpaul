@@ -234,21 +234,21 @@
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-md-4 control-label" for="householdId">Household ID</label>
-                            <div class="col-md-10">
+                            <label class="col-md-4 control-label" >Household</label>
+
+                            <div class="col-md-7">
+                                <input readonly type="text"  ng-model="ctrl.member.householdName" id="householdName" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="householdId">Choose New Household</label>
+                        <div class="col-md-7">
                                 <select class="form-control" ng-model="ctrl.member.householdId" id="householdId"
                                         ng-options="h.name for h in ctrl.getAllHouseholds() track by h.id" required>
-                                    <option value=""{{ctrl.member.householdId}}/option>
+                                        <option value="">--Select a Household--</option>
                                 </select>
                             </div>
                         </div>
-                        <#--<div class="form-group col-md-6">-->
-                            <#--<label class="col-md-4 control-label" for="householdId">Household Name</label>-->
-                            <#--<div class="col-md-7">-->
-                                <#--<input readonly type="text" ng-model="ctrl.member.householdName" id="householdName"-->
-                                       <#--class="form-control input-sm" placeholder="Household Name."/>-->
-                            <#--</div>-->
-                        <#--</div>-->
                     </div>
 
                     <div class="row">

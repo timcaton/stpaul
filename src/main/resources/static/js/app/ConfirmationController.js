@@ -98,22 +98,46 @@ angular.module('crudApp').controller('ConfirmationController',
 
 
         function getAllConfirmations(){
-            return ConfirmationService.getAllConfirmations();
+            self.confirmations = ConfirmationService.getAllConfirmations();
         }
 
         function editConfirmation(id) {
-            self.successMessage='';
-            self.errorMessage='';
+            self.successMessage = '';
+            self.errorMessage = '';
+
+            getAllConfirmations();
+
+            if (self.confirmations) {
+                for (var i = 0; i < self.confirmations.length; i++) {
+                    if (self.confirmations[i].memberId == id) {
+                        self.confirmation = self.confirmations[i];
+                    }
+                    else {
+                        self.errorMessage = 'No Confirmation Information For This Member';
+                    }
+                }
+            } else {
+                self.errorMessage = 'No Confirmation Information For This Member';
+            }
+
             self.confirmation.memberId = id;
             self.confirmation.memberName = currentMember.name;
-            ConfirmationService.getConfirmation(id).then(
-                function (confirmation) {
-                    self.confirmation = confirmation;
-                },
-                function (errResponse) {
-                    console.error('Error while removing confirmation ' + id + ', Error :' + errResponse.data);
-                }
-            );
+            self.confirmation.confirmationDate = new Date(self.confirmation.confirmationDate);
+            self.confirmation.examinationDate = new Date(self.confirmation.examinationDate);
+            self.confirmations = [];
+
+            // self.successMessage='';
+            // self.errorMessage='';
+            // self.confirmation.memberId = id;
+            // self.confirmation.memberName = currentMember.name;
+            // ConfirmationService.getConfirmation(id).then(
+            //     function (confirmation) {
+            //         self.confirmation = confirmation;
+            //     },
+            //     function (errResponse) {
+            //         console.error('Error while removing confirmation ' + id + ', Error :' + errResponse.data);
+            //     }
+            // );
         }
         function reset(){
             self.successMessage='';

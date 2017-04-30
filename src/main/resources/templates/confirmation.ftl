@@ -23,7 +23,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Church Member Name</label>
                             <div class="col-md-7">
-                                <p>{{member.name}}</p>
+                                <input readonly type="text"  ng-model="ctrl.confirmation.memberName" id="memberName" class="form-control input-sm"/>
                             </div>
                         </div>
                     </div>

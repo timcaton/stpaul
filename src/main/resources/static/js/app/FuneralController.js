@@ -98,22 +98,33 @@ angular.module('crudApp').controller('FuneralController',
 
 
         function getAllFunerals(){
-            return FuneralService.getAllFunerals();
+            self.funerals = FuneralService.getAllFunerals();
         }
 
         function editFuneral(id) {
-            self.successMessage='';
-            self.errorMessage='';
+            self.successMessage = '';
+            self.errorMessage = '';
+
+            getAllFunerals();
+
+            if (self.funerals) {
+                for (var i = 0; i < self.funerals.length; i++) {
+                    if (self.funerals[i].memberId == id) {
+                        self.funeral = self.funerals[i];
+                        self.funeral.funeralDate = new Date(moment(self.funeral.funeralDate));
+                        self.funeral.deathDate = new Date(moment(self.funeral.deathDate));
+                    }
+                    else {
+                        self.errorMessage = 'No Funeral Information For This Member';
+                    }
+                }
+            } else {
+                self.errorMessage = 'No Funeral Information For This Member';
+            }
+
             self.funeral.memberId = id;
             self.funeral.memberName = currentMember.name;
-            FuneralService.getFuneral(id).then(
-                function (funeral) {
-                    self.funeral = funeral;
-                },
-                function (errResponse) {
-                    console.error('Error while removing funeral ' + id + ', Error :' + errResponse.data);
-                }
-            );
+            self.funerals = [];
         }
         function reset(){
             self.successMessage='';

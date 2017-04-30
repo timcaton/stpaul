@@ -23,9 +23,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Church Member Name</label>
                             <div class="col-md-7">
-                                <p>{{member.name}}</p>
-                            <#--<input type="text"  ng-model="ctrl.funeral.memberName" id="memberName" class="form-control input-sm"-->
-                            <#--placeholder="getMemberName(memberId)" required ng-minlength="1"/>-->
+                                <input readonly type="text"  ng-model="ctrl.funeral.memberName" id="memberName" class="form-control input-sm"/>
                             </div>
                         </div>
                     </div>

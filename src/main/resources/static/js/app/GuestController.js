@@ -104,6 +104,7 @@ angular.module('crudApp').controller('GuestController',
             GuestService.getGuest(id).then(
                 function (guest) {
                     self.guest = guest;
+                    self.guest.communionDate = new Date(moment(self.guest.communionDate));
                 },
                 function (errResponse) {
                     console.error('Error while removing guest ' + id + ', Error :' + errResponse.data);

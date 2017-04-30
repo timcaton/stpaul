@@ -41,7 +41,7 @@
 
                     <div class="form-group col-md-12">
                         <div class="col-md-7">
-                            <a href="#/report">Report</a>
+                            <a href="#/report">Reports</a>
                         </div>
                     </div>
             </div>

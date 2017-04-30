@@ -29,7 +29,7 @@ angular.module('crudApp').controller('BaptismController',
         init();
 
         function init() {
-            editBaptism(currentMemberId);
+            editBaptism(currentMemberId)
         }
 
         function doTheBack() {
@@ -56,7 +56,7 @@ angular.module('crudApp').controller('BaptismController',
                         self.successMessage = 'Baptism created successfully';
                         self.errorMessage='';
                         self.done = true;
-                        self.baptism={};
+                        self.baptism = {};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
@@ -64,7 +64,7 @@ angular.module('crudApp').controller('BaptismController',
                         self.errorMessage = 'Error while creating Baptism: ' + errResponse.data.errorMessage;
                         self.successMessage='';
                     }
-                );
+                )
         }
 
 
@@ -103,25 +103,32 @@ angular.module('crudApp').controller('BaptismController',
 
 
         function getAllBaptisms(){
-            return BaptismService.getAllBaptisms();
+            self.baptisms = BaptismService.getAllBaptisms();
         }
 
         function editBaptism(id) {
-            self.successMessage='';
-            self.errorMessage='';
+            self.successMessage = '';
+            self.errorMessage = '';
+
+            getAllBaptisms();
+
+            if (self.baptisms) {
+                for (var i = 0; i < self.baptisms.length; i++) {
+                    if (self.baptisms[i].memberId == id) {
+                        self.baptism = self.baptisms[i];
+                        self.baptism.baptismDate = new Date(moment(self.baptism.baptismDate));
+                    }
+                    else {
+                        self.errorMessage = 'No Baptism Information For This Member';
+                    }
+                }
+            } else {
+                self.errorMessage = 'No Baptism Information For This Member';
+            }
+
             self.baptism.memberId = id;
             self.baptism.memberName = currentMember.name;
-            BaptismService.getBaptism(id).then(
-                function (baptism) {
-                    self.baptism = baptism;
-                },
-                function (errResponse) {
-                    if(errResponse.status == 404){
-                        self.errorMessage='No Baptism Information For This Member';
-                    }
-                    console.error('Error while removing baptism ' + id + ', Error :' + errResponse.data);
-                }
-            );
+            self.baptisms = [];
         }
         function reset(){
             self.successMessage='';

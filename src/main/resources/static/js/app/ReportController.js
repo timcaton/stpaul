@@ -16,6 +16,8 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
         self.funerals=[];
         self.guests=[];
         self.marriages=[];
+        self.serviceDate={};
+        self.serviceContributionList = [];
 
         self.submit = submit;
         self.getAllMembers = getAllMembers;
@@ -33,6 +35,12 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
         self.openFuneralModal = openFuneralModal;
         self.openMarriageModal = openMarriageModal;
         self.reset = reset;
+        self.editMember = editMember;
+        self.editBaptism = editBaptism;
+        self.editFuneral = editFuneral;
+        self.editConfirmation = editConfirmation;
+        self.serviceContributions = serviceContributions;
+        self.monthContributions = monthContributions;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -105,7 +113,7 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
         }
 
         function getAllBaptisms(){
-            return BaptismService.getAllBaptisms();
+            self.baptisms = BaptismService.getAllBaptisms();
         }
 
         function getAllCommunions(){
@@ -113,7 +121,7 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
         }
 
         function getAllConfirmations(){
-            return ConfirmationService.getAllConfirmations();
+            self.confirmations = ConfirmationService.getAllConfirmations();
         }
 
         function getAllContributions(){
@@ -121,7 +129,7 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
         }
 
         function getAllFunerals(){
-            return FuneralService.getAllFunerals();
+            self.funerals = FuneralService.getAllFunerals();
         }
 
         function getAllGuests(){
@@ -138,7 +146,148 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
             self.member={};
             $scope.myForm.$setPristine(); //reset Form
         }
+
+        function editMember() {
+            self.successMessage='';
+            self.errorMessage='';
+            MemberService.getMember(self.member.id).then(
+                function (member) {
+                    self.member = member;
+                    self.member.dob = new Date(moment(self.member.dob));
+                    HouseholdService.getHousehold(self.member.householdId).then(
+                        function (household) {
+                            self.member.householdName = household.name;
+                            self.member.householdId = household.id;
+                        });
+                    editBaptism(self.member.id);
+                    editFuneral(self.member.id);
+                    editConfirmation(self.member.id);
+                },
+                function (errResponse) {
+                    console.error('Error while removing member ' + id + ', Error :' + errResponse.data);
+                }
+            );
+        }
+
+        function editBaptism(id) {
+            self.successMessage = '';
+            self.errorMessage = '';
+
+            getAllBaptisms();
+
+            if (self.baptisms) {
+                for (var i = 0; i < self.baptisms.length; i++) {
+                    if (self.baptisms[i].memberId == id) {
+                        self.baptism = self.baptisms[i];
+                        self.baptism.baptismDate = new Date(moment(self.baptism.baptismDate));
+                    }
+                }
+            }
+
+            self.baptisms = [];
+        }
+
+        function editFuneral(id) {
+            self.successMessage = '';
+            self.errorMessage = '';
+
+            getAllFunerals();
+
+            if (self.funerals) {
+                for (var i = 0; i < self.funerals.length; i++) {
+                    if (self.funerals[i].memberId == id) {
+                        self.funeral = self.funerals[i];
+                        self.funeral.funeralDate = new Date(moment(self.funeral.funeralDate));
+                        self.funeral.deathDate = new Date(moment(self.funeral.deathDate));
+                    }
+                }
+            }
+            self.funerals = [];
+        }
+
+        function editConfirmation(id) {
+            self.successMessage = '';
+            self.errorMessage = '';
+
+            getAllConfirmations();
+
+            if (self.confirmations) {
+                for (var i = 0; i < self.confirmations.length; i++) {
+                    if (self.confirmations[i].memberId == id) {
+                        self.confirmation = self.confirmations[i];
+                        self.confirmation.confirmationDate = new Date(moment(self.confirmation.confirmationDate));
+                        self.confirmation.examinationDate = new Date(moment(self.confirmation.examinationDate));
+                    }
+                }
+            }
+
+            self.confirmations = [];
+        }
+
+        function serviceContributions() {
+            self.contributions = [];
+            self.serviceContributionList = [];
+            self.generalTotal=null;
+            self.buildingTotal=null;
+            self.otherTotal=null;
+
+            self.contributions = getAllContributions();
+
+            for (var i = 0; i < self.contributions.length; i++) {
+                var contributionDate = self.contributions[i].contributionDate;
+                var serviceDate = self.serviceDate;
+                contributionDate.toString();
+                serviceDate.toString();
+                if (contributionDate = serviceDate) {
+                    self.serviceContributionList.push(self.contributions[i]);
+                }
+            }
+
+            for (var i = 0; i < self.serviceContributionList.length; i++) {
+                if (self.serviceContributionList[i].purpose == 'General') {
+                    self.generalTotal += self.serviceContributionList[i].amount;
+                }
+                if (self.serviceContributionList[i].purpose == 'Building') {
+                    self.buildingTotal += self.serviceContributionList[i].amount;
+                }
+                if(self.serviceContributionList[i].purpose != 'Building' || self.serviceContributionList[i].purpose != 'General') {
+                    self.otherTotal += self.serviceContributionList[i].amount;
+                }
+            }
+        }
+
+        function monthContributions() {
+            self.contributions = [];
+            self.monthContributionList = [];
+            self.generalTotal=null;
+            self.buildingTotal=null;
+            self.otherTotal=null;
+
+            self.contributions = getAllContributions();
+
+            for (var i = 0; i < self.contributions.length; i++) {
+                var monthDate = new Date (moment(self.contributions[i].contributionDate));
+                var month = monthDate.getMonth();
+                var year = monthDate.getYear();
+
+                if (self.month = toString(month)) {
+                    if (self.year = toString(year)) {
+                        self.monthContributionList.push(self.contributions[i]);
+                    }
+                }
+            }
+
+            for (var i = 0; i < self.monthContributionList.length; i++) {
+                if (self.monthContributionList[i].purpose == 'General') {
+                    self.generalTotal += self.monthContributionList[i].amount;
+                }
+                if (self.monthContributionList[i].purpose == 'Building') {
+                    self.buildingTotal += self.monthContributionList[i].amount;
+                }
+                // if(self.monthContributionList[i].purpose != 'Building' || self.monthContributionList[i].purpose != 'General') {
+                //     self.otherTotal += self.monthContributionList[i].amount;
+                // }
+            }
+        }
     }
-
-
 ]);

@@ -79,21 +79,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 }
             })
 
-            .state('memberView', {
-                url: '/memberView',
-                templateUrl: 'partials/memberView',
-                controller:'MemberController',
-                controllerAs:'ctrl',
-                resolve: {
-                    members: function ($q, MemberService) {
-                        console.log('Load all members');
-                        var deferred = $q.defer();
-                        MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
-                        return deferred.promise;
-                    }
-                }
-            })
-
             .state('baptism', {
             url: '/baptism',
             templateUrl: 'partials/baptism',
@@ -206,6 +191,48 @@ app.config(['$stateProvider', '$urlRouterProvider',
             }
             })
 
+            .state('serviceContributionReport', {
+                url: '/serviceContributionReport',
+                templateUrl: 'partials/serviceContributionReport',
+                controller:'ReportController',
+                controllerAs:'ctrl',
+                resolve: {
+                    members: function ($q, MemberService) {
+                        console.log('Load all members');
+                        var deferred = $q.defer();
+                        MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    contributions: function ($q, ContributionService) {
+                        console.log('Load all contributions');
+                        var deferred = $q.defer();
+                        ContributionService.loadAllContributions().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
+            })
+
+            .state('monthContributionReport', {
+                url: '/monthContributionReport',
+                templateUrl: 'partials/monthContributionReport',
+                controller:'ReportController',
+                controllerAs:'ctrl',
+                resolve: {
+                    members: function ($q, MemberService) {
+                        console.log('Load all members');
+                        var deferred = $q.defer();
+                        MemberService.loadAllMembers().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    contributions: function ($q, ContributionService) {
+                        console.log('Load all contributions');
+                        var deferred = $q.defer();
+                        ContributionService.loadAllContributions().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
+            })
+
             .state('communion', {
             url: '/communion',
             templateUrl: 'partials/communion',
@@ -227,9 +254,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
             }
             })
 
-            .state('report', {
-                url: '/report',
-                templateUrl: 'partials/report',
+
+            .state('fullMemberReport', {
+                url: '/fullMemberReport',
+                templateUrl: 'partials/fullMemberReport',
                 controller:'ReportController',
                 controllerAs:'ctrl',
                 resolve: {
@@ -288,6 +316,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
                         return deferred.promise;
                     }
                 }
+            })
+
+            .state('report', {
+                url: '/report',
+                templateUrl: 'partials/report'
             });
         $urlRouterProvider.otherwise('/');
     }]);

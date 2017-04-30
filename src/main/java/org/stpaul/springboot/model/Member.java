@@ -90,7 +90,7 @@ public class Member implements Serializable{
     private String placeOfBirth;
 
     @Column(name = "PHONE_NUMBER")
-    private String phoneNumber;
+    private Long phoneNumber;
 
     @Column(name = "NUMBER_OF_CHILDREN")
     private Long numberOfChildren;
@@ -309,11 +309,11 @@ public class Member implements Serializable{
         this.placeOfBirth = placeOfBirth;
     }
 
-    public String getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

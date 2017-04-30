@@ -118,6 +118,7 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
                         self.successMessage='Member updated successfully';
                         self.errorMessage='';
                         self.done = true;
+                        // editMember(id);
                         $scope.myForm.$setPristine();
                     },
                     function(errResponse){
@@ -156,9 +157,12 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
             MemberService.getMember(id).then(
                 function (member) {
                     self.member = member;
+                    var dob = self.member.dob;
+                    self.member.dob = new Date (moment(dob));
                     HouseholdService.getHousehold(self.member.householdId).then(
                         function (household) {
                             self.member.householdName = household.name;
+                            self.member.householdId = household.id;
                         });
                 },
                 function (errResponse) {

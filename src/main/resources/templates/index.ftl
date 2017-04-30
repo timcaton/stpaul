@@ -14,6 +14,7 @@
         <script src="js/lib/localforage.min.js" ></script>
         <script src="js/lib/ngStorage.min.js"></script>
         <script src="js/lib/ui-bootstrap.js"></script>
+        <script src="js/lib/moment.js"></script>
         <script src="js/app/app.js"></script>
         <script src="js/app/MemberService.js"></script>
         <script src="js/app/MemberController.js"></script>
