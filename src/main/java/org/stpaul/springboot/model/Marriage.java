@@ -11,11 +11,11 @@ public class Marriage implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "SPOUSE_ID_1")
-    private Long spouse1;
+    @Column(name = "SPOUSE_1")
+    private String spouse1;
 
-    @Column(name = "SPOUSE_ID_2")
-    private Long spouse2;
+    @Column(name = "SPOUSE_2")
+    private String spouse2;
 
     @Column(name = "MARRIAGE_DATE")
     private Date marriageDate;
@@ -49,19 +49,19 @@ public class Marriage implements Serializable {
         this.id = id;
     }
 
-    public Long getSpouse1() {
+    public String getSpouse1() {
         return spouse1;
     }
 
-    public void setSpouse1(Long spouse1) {
+    public void setSpouse1(String spouse1) {
         this.spouse1 = spouse1;
     }
 
-    public Long getSpouse2() {
+    public String getSpouse2() {
         return spouse2;
     }
 
-    public void setSpouse2(Long spouse2) {
+    public void setSpouse2(String spouse2) {
         this.spouse2 = spouse2;
     }
 

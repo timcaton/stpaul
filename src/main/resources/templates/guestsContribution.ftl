@@ -9,23 +9,21 @@
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">Members</span></div>
+        <div class="panel-heading"><span class="lead">Guests</span></div>
         <div class="panel-body">
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>ENVELOPE ID</th>
-                        <th>MEMBER NAME</th>
+                        <th>GUEST NAME</th>
                         <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="m in ctrl.getAllMembers()">
-                        <td>{{m.envelopeId}}</td>
-                        <td>{{m.name}}</td>
+                    <tr ng-repeat="g in ctrl.getAllGuests()">
+                        <td>{{g.name}}</td>
                         <td>
-                            <button type="button" ng-click="ctrl.chooseMember(m.id)" class="btn btn-success custom-width">
+                            <button type="button" ng-click="ctrl.chooseGuest(g.id)" class="btn btn-success custom-width">
                                 Choose
                             </button>
                         </td>
@@ -47,10 +45,10 @@
 
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="memberId">Church Member ID</label>
+                            <label class="col-md-2 control-label" for="guestId">Guest ID</label>
                             <div class="col-md-7">
-                                <input readonly type="text" ng-model="ctrl.contribution.memberId" id="memberId" class="form-control input-sm"
-                                       placeholder="Enter Church Member ID" ng-minlength="1"/>
+                                <input readonly type="text" ng-model="ctrl.contribution.guestId" id="guestId" class="form-control input-sm"
+                                    placeholder="Enter Guest ID" ng-minlength="1"/>
                             </div>
                         </div>
                     </div>
@@ -115,11 +113,11 @@
         <div class="panel-heading"><span class="lead">List of Contributions</span></div>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-hover" ts-wrapper="">
+                <table class="table table-hover" ts-wrapper>
                     <thead>
                     <tr>
                         <th ts-criteria="id">ID</th>
-                        <th ts-criteria="memberId">CHURCH MEMBER ID</th>
+                        <th ts-criteria="guestId">GUEST ID</th>
                         <th ts-criteria="purpose">PURPOSE</th>
                         <th ts-criteria="contributionDate">DATE</th>
                         <th ts-criteria="method">METHOD</th>
@@ -129,9 +127,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="c in ctrl.getAllContributions()" ts-repeat>
+                    <tr ng-repeat="c in ctrl.getAllContributions()">
                         <td>{{c.id}}</td>
-                        <td>{{c.memberId}}</td>
+                        <td>{{c.guestId}}</td>
                         <td>{{c.purpose}}</td>
                         <td>{{c.contributionDate}}</td>
                         <td>{{c.method}}</td>

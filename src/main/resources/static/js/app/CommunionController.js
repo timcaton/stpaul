@@ -164,6 +164,7 @@ angular.module('crudApp').controller('CommunionController',
                 }
             );
         }
+
         function reset(){
             self.successMessage='';
             self.errorMessage='';
@@ -171,6 +172,4 @@ angular.module('crudApp').controller('CommunionController',
             $scope.myForm.$setPristine(); //reset Form
         }
     }
-
-
     ]);

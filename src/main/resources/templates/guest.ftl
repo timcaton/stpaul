@@ -107,23 +107,23 @@
         <div class="panel-heading"><span class="lead">List of Guests </span></div>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" ts-wrapper>
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>ADDRESS</th>
-                        <th>PHONE</th>
-                        <th>HOME CHURCH</th>
-                        <th>COMMUNION DATE</th>
-                        <th>GUEST EMAIL</th>
-                        <th>GUEST COMMENTS</th>
+                        <th ts-criteria="id">ID</th>
+                        <th ts-criteria="name">NAME</th>
+                        <th ts-criteria="address">ADDRESS</th>
+                        <th ts-criteria="phone">PHONE</th>
+                        <th ts-criteria="homeChurch">HOME CHURCH</th>
+                        <th ts-criteria="communionDate">COMMUNION DATE</th>
+                        <th ts-criteria="guestEmail">GUEST EMAIL</th>
+                        <th ts-criteria="guestComment">GUEST COMMENTS</th>
                         <th width="100"></th>
                         <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="g in ctrl.getAllGuests()">
+                    <tr ng-repeat="g in ctrl.getAllGuests()" ts-repeat>
                         <td>{{g.id}}</td>
                         <td>{{g.name}}</td>
                         <td>{{g.address}}</td>

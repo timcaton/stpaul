@@ -20,20 +20,20 @@
         <div class="panel-heading"><span class="lead">List of Members</span></div>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" ts-wrapper>
                     <thead>
                     <tr>
-                        <th>HOUSEHOLD ID</th>
-                        <th>MEMBER ID</th>
-                        <th>TITLE</th>
-                        <th>NAME</th>
-                        <th>DATE OF BIRTH</th>
-                        <th>STATUS</th>
+                        <th ts-criteria="householdId">HOUSEHOLD ID</th>
+                        <th ts-criteria="id">MEMBER ID</th>
+                        <th ts-criteria="title">TITLE</th>
+                        <th ts-criteria="name">NAME</th>
+                        <th ts-criteria="dob">DATE OF BIRTH</th>
+                        <th ts-criteria="status">STATUS</th>
                         <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="m in ctrl.getAllMembers()">
+                    <tr ng-repeat="m in ctrl.getAllMembers()" ts-repeat>
                         <td>{{m.householdId}}</td>
                         <td>{{m.id}}</td>
                         <td>{{m.title}}</td>
@@ -213,8 +213,7 @@
         <div class="panel-heading"><span class="lead">Spiritual Milestones</span></div>
         <div class="panel-body">
             <div class="row">
-                <div >
-                    <button class="btn btn-success custom-width" ng-click="ctrl.openMarriageModal()">View Marriage</button>
+                <div>
                     <button class="btn btn-success custom-width" ng-click="ctrl.openBaptismModal()">View Baptism</button>
                     <button class="btn btn-success custom-width" ng-click="ctrl.openConfirmationModal()">View Confirmation</button>
                     <button class="btn btn-success custom-width" ng-click="ctrl.openFuneralModal()">View Funeral</button>

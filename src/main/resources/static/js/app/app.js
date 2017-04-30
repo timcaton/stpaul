@@ -1,16 +1,16 @@
-var app = angular.module('crudApp',['ui.router','ngStorage', 'ui.bootstrap']);
+var app = angular.module('stPaul',['ui.router','ngStorage', 'ui.bootstrap', 'tableSort']);
 
 app.constant('urls', {
-    BASE: 'http://localhost:8080/SpringBootCRUDApp',
-    MEMBER_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/member/',
-    BAPTISM_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/baptism/',
-    HOUSEHOLD_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/household/',
-    CONFIRMATION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/confirmation/',
-    FUNERAL_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/funeral/',
-    MARRIAGE_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/marriage/',
-    GUEST_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/guest/',
-    CONTRIBUTION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/contribution/',
-    COMMUNION_SERVICE_API : 'http://localhost:8080/SpringBootCRUDApp/api/communion/'
+    BASE: 'http://localhost:8080/StPaul',
+    MEMBER_SERVICE_API : 'http://localhost:8080/StPaul/api/member/',
+    BAPTISM_SERVICE_API : 'http://localhost:8080/StPaul/api/baptism/',
+    HOUSEHOLD_SERVICE_API : 'http://localhost:8080/StPaul/api/household/',
+    CONFIRMATION_SERVICE_API : 'http://localhost:8080/StPaul/api/confirmation/',
+    FUNERAL_SERVICE_API : 'http://localhost:8080/StPaul/api/funeral/',
+    MARRIAGE_SERVICE_API : 'http://localhost:8080/StPaul/api/marriage/',
+    GUEST_SERVICE_API : 'http://localhost:8080/StPaul/api/guest/',
+    CONTRIBUTION_SERVICE_API : 'http://localhost:8080/StPaul/api/contribution/',
+    COMMUNION_SERVICE_API : 'http://localhost:8080/StPaul/api/communion/'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -20,6 +20,13 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('home', {
                 url: '/',
                 templateUrl: 'partials/home'
+            })
+
+            .state('contributionsLanding', {
+                url: '/contributionsLanding',
+                templateUrl: 'partials/contributionsLanding',
+                controller:'ContributionController',
+                controllerAs:'ctrl'
             })
 
             .state('memberLanding', {
@@ -189,6 +196,27 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return deferred.promise;
                 }
             }
+            })
+
+            .state('guestsContribution', {
+                url: '/guestsContribution',
+                templateUrl: 'partials/guestsContribution',
+                controller:'ContributionController',
+                controllerAs:'ctrl',
+                resolve: {
+                    guests: function ($q, GuestService) {
+                        console.log('Load all guests');
+                        var deferred = $q.defer();
+                        GuestService.loadAllGuests().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    },
+                    contributions: function ($q, ContributionService) {
+                        console.log('Load all contributions');
+                        var deferred = $q.defer();
+                        ContributionService.loadAllContributions().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
             })
 
             .state('serviceContributionReport', {

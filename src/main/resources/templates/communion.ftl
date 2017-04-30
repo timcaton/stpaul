@@ -74,17 +74,17 @@
         <div class="panel-heading"><span class="lead">List of Communions</span></div>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" ts-wrapper>
                     <thead>
                     <tr>
-                        <th>CHURCH MEMBER ID</th>
-                        <th>DATE OF COMMUNION</th>
+                        <th ts-criteria="id">CHURCH MEMBER ID</th>
+                        <th ts-criteria="communionDate|parseDate">DATE OF COMMUNION</th>
                         <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="c in ctrl.getAllCommunions()">
-                        <td>{{c.memberId}}</td>
+                    <tr ng-repeat="c in ctrl.getAllCommunions()" ts-repeat>
+                        <td>{{c.id}}</td>
                         <td>{{c.communionDate}}</td>
                         <td>
                             <button type="button" ng-click="ctrl.removeCommunion(c.id)"

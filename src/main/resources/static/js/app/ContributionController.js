@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('crudApp').controller('ContributionController',
-    ['ContributionService', 'MemberService', '$scope',  function( ContributionService, MemberService, $scope) {
+    ['ContributionService', 'MemberService', 'GuestService', '$scope',  function( ContributionService, MemberService, GuestService, $scope) {
 
         var self = this;
         self.contribution = {};
         self.contributions = [];
         self.members = [];
+        self.guests = [];
 
         self.submit = submit;
         self.getAllContributions = getAllContributions;
@@ -18,6 +19,8 @@ angular.module('crudApp').controller('ContributionController',
         self.doTheBack = doTheBack;
         self.chooseMember = chooseMember;
         self.getAllMembers = getAllMembers;
+        self.chooseGuest = chooseGuest;
+        self.getAllGuests = getAllGuests;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -34,8 +37,16 @@ angular.module('crudApp').controller('ContributionController',
             return MemberService.getAllMembers();
         }
 
+        function getAllGuests() {
+            return GuestService.getAllGuests();
+        }
+
         function chooseMember(id) {
             self.contribution.memberId = id;
+        }
+
+        function chooseGuest(id) {
+            self.contribution.guestId = id;
         }
 
         function submit() {

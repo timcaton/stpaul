@@ -21,7 +21,6 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
         self.openBaptismModal = openBaptismModal;
         self.openConfirmationModal = openConfirmationModal;
         self.openFuneralModal = openFuneralModal;
-        self.openMarriageModal = openMarriageModal;
         self.reset = reset;
 
         self.successMessage = '';
@@ -33,16 +32,6 @@ angular.module('crudApp').controller('MemberController', ['MemberService', 'Hous
 
         function doTheBack() {
             window.history.back();
-        }
-
-        function openMarriageModal() {
-            var marriageModal = $modal.open({
-                templateUrl: 'partials/marriage',
-                size: 'lg',
-                controller:'MarriageController',
-                controllerAs:'ctrl'
-            });
-            marriageModal.member = self.member;
         }
 
         function openBaptismModal() {

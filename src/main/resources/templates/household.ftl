@@ -63,18 +63,18 @@
         <div class="panel-heading"><span class="lead">List of Households </span></div>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" ts-wrapper="">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Household Name</th>
-                        <th>Household Type</th>
+                        <th ts-criteria="id">ID</th>
+                        <th ts-criteria="name">Household Name</th>
+                        <th ts-criteria="householdType">Household Type</th>
                         <th width="100"></th>
                         <th width="100"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="h in ctrl.getAllHouseholds()">
+                    <tr ng-repeat="h in ctrl.getAllHouseholds()" ts-repeat>
                         <td>{{h.id}}</td>
                         <td>{{h.name}}</td>
                         <td>{{h.householdType}}</td>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" ng-app="crudApp">
+<html lang="en" ng-app="stPaul">
     <head>
         <title>${title}</title>
         <link href="css/bootstrap.css" rel="stylesheet"/>
@@ -15,6 +15,7 @@
         <script src="js/lib/ngStorage.min.js"></script>
         <script src="js/lib/ui-bootstrap.js"></script>
         <script src="js/lib/moment.js"></script>
+        <script src="js/lib/angular-tablesort.js"></script>
         <script src="js/app/app.js"></script>
         <script src="js/app/MemberService.js"></script>
         <script src="js/app/MemberController.js"></script>

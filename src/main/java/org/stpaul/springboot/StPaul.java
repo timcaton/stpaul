@@ -9,9 +9,9 @@ import org.stpaul.springboot.configuration.JpaConfiguration;
 
 @Import(JpaConfiguration.class)
 @SpringBootApplication(scanBasePackages={"org.stpaul.springboot"})// same as @Configuration @EnableAutoConfiguration @ComponentScan
-public class SpringBootCRUDApp {
+public class StPaul {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootCRUDApp.class, args);
+		SpringApplication.run(StPaul.class, args);
 	}
 }

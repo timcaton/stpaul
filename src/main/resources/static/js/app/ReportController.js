@@ -53,46 +53,6 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
             window.history.back();
         }
 
-        function openMarriageModal() {
-            var marriageModal = $modal.open({
-                templateUrl: 'partials/marriage',
-                size: 'lg',
-                controller:'MarriageController',
-                controllerAs:'ctrl'
-            });
-            marriageModal.member = self.member;
-        }
-
-        function openBaptismModal() {
-            var baptismModal = $modal.open({
-                templateUrl: 'partials/baptism',
-                size: 'lg',
-                controller:'BaptismController',
-                controllerAs:'ctrl'
-            });
-            baptismModal.member = self.member;
-        }
-
-        function openFuneralModal() {
-            var funeralModal = $modal.open({
-                templateUrl: 'partials/funeral',
-                size: 'lg',
-                controller:'FuneralController',
-                controllerAs:'ctrl'
-            });
-            funeralModal.member = self.member;
-        }
-
-        function openConfirmationModal() {
-            var confirmationModal = $modal.open({
-                templateUrl: 'partials/confirmation',
-                size: 'lg',
-                controller:'ConfirmationController',
-                controllerAs:'ctrl'
-            });
-            confirmationModal.member = self.member;
-        }
-
         function submit() {
             console.log('Submitting');
             if (self.member.id === undefined || self.member.id === null) {
@@ -224,70 +184,70 @@ angular.module('crudApp').controller('ReportController', ['MemberService', 'Hous
             self.confirmations = [];
         }
 
-        function serviceContributions() {
-            self.contributions = [];
-            self.serviceContributionList = [];
-            self.generalTotal=null;
-            self.buildingTotal=null;
-            self.otherTotal=null;
-
-            self.contributions = getAllContributions();
-
-            for (var i = 0; i < self.contributions.length; i++) {
-                var contributionDate = self.contributions[i].contributionDate;
-                var serviceDate = self.serviceDate;
-                contributionDate.toString();
-                serviceDate.toString();
-                if (contributionDate = serviceDate) {
-                    self.serviceContributionList.push(self.contributions[i]);
-                }
-            }
-
-            for (var i = 0; i < self.serviceContributionList.length; i++) {
-                if (self.serviceContributionList[i].purpose == 'General') {
-                    self.generalTotal += self.serviceContributionList[i].amount;
-                }
-                if (self.serviceContributionList[i].purpose == 'Building') {
-                    self.buildingTotal += self.serviceContributionList[i].amount;
-                }
-                if(self.serviceContributionList[i].purpose != 'Building' || self.serviceContributionList[i].purpose != 'General') {
-                    self.otherTotal += self.serviceContributionList[i].amount;
-                }
-            }
-        }
-
-        function monthContributions() {
-            self.contributions = [];
-            self.monthContributionList = [];
-            self.generalTotal=null;
-            self.buildingTotal=null;
-            self.otherTotal=null;
-
-            self.contributions = getAllContributions();
-
-            for (var i = 0; i < self.contributions.length; i++) {
-                var monthDate = new Date (moment(self.contributions[i].contributionDate));
-                var month = monthDate.getMonth();
-                var year = monthDate.getYear();
-
-                if (self.month = toString(month)) {
-                    if (self.year = toString(year)) {
-                        self.monthContributionList.push(self.contributions[i]);
-                    }
-                }
-            }
-
-            for (var i = 0; i < self.monthContributionList.length; i++) {
-                if (self.monthContributionList[i].purpose == 'General') {
-                    self.generalTotal += self.monthContributionList[i].amount;
-                }
-                if (self.monthContributionList[i].purpose == 'Building') {
-                    self.buildingTotal += self.monthContributionList[i].amount;
-                }
-                // if(self.monthContributionList[i].purpose != 'Building' || self.monthContributionList[i].purpose != 'General') {
-                //     self.otherTotal += self.monthContributionList[i].amount;
-                // }
-            }
-        }
+        // function serviceContributions() {
+        //     self.contributions = [];
+        //     self.serviceContributionList = [];
+        //     self.generalTotal=null;
+        //     self.buildingTotal=null;
+        //     self.otherTotal=null;
+        //
+        //     self.contributions = getAllContributions();
+        //
+        //     for (var i = 0; i < self.contributions.length; i++) {
+        //         var contributionDate = self.contributions[i].contributionDate;
+        //         var serviceDate = self.serviceDate;
+        //         contributionDate.toString();
+        //         serviceDate.toString();
+        //         if (contributionDate = serviceDate) {
+        //             self.serviceContributionList.push(self.contributions[i]);
+        //         }
+        //     }
+        //
+        //     for (var i = 0; i < self.serviceContributionList.length; i++) {
+        //         if (self.serviceContributionList[i].purpose == 'General') {
+        //             self.generalTotal += self.serviceContributionList[i].amount;
+        //         }
+        //         if (self.serviceContributionList[i].purpose == 'Building') {
+        //             self.buildingTotal += self.serviceContributionList[i].amount;
+        //         }
+        //         if(self.serviceContributionList[i].purpose != 'Building' || self.serviceContributionList[i].purpose != 'General') {
+        //             self.otherTotal += self.serviceContributionList[i].amount;
+        //         }
+        //     }
+        // }
+        //
+        // function monthContributions() {
+        //     self.contributions = [];
+        //     self.monthContributionList = [];
+        //     self.generalTotal=null;
+        //     self.buildingTotal=null;
+        //     self.otherTotal=null;
+        //
+        //     self.contributions = getAllContributions();
+        //
+        //     for (var i = 0; i < self.contributions.length; i++) {
+        //         var monthDate = new Date (moment(self.contributions[i].contributionDate));
+        //         var month = monthDate.getMonth();
+        //         var year = monthDate.getYear();
+        //
+        //         if (self.month = toString(month)) {
+        //             if (self.year = toString(year)) {
+        //                 self.monthContributionList.push(self.contributions[i]);
+        //             }
+        //         }
+        //     }
+        //
+        //     for (var i = 0; i < self.monthContributionList.length; i++) {
+        //         if (self.monthContributionList[i].purpose == 'General') {
+        //             self.generalTotal += self.monthContributionList[i].amount;
+        //         }
+        //         if (self.monthContributionList[i].purpose == 'Building') {
+        //             self.buildingTotal += self.monthContributionList[i].amount;
+        //         }
+        //         // if(self.monthContributionList[i].purpose != 'Building' || self.monthContributionList[i].purpose != 'General') {
+        //         //     self.otherTotal += self.monthContributionList[i].amount;
+        //         // }
+        //     }
+        // }
     }
 ]);

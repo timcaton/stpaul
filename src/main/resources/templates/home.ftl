@@ -28,7 +28,15 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <div class="col-md-7">
-                                <a href="#/contribution">Contributions</a>
+                                <a href="#/marriage">Marriage</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-7">
+                                <a href="#/contributionsLanding">Contributions</a>
                             </div>
                         </div>
                     </div>
