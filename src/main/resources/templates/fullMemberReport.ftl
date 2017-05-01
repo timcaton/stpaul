@@ -23,23 +23,46 @@
 
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="nickname">Nick Name</label>
+                            <label class="col-md-2 control-label" for="title">Title</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.nickname" id="nickname"
-                                       class="form-control input-sm" placeholder="Enter nick name" required
+                                <input type="text" ng-model="ctrl.member.title" id="title" class="form-control input-sm"
+                                       placeholder="Enter title Mr, Mrs, or Miss" required ng-minlength="2"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="title">Suffix</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.suffix" id="suffix" class="form-control input-sm"
+                                       placeholder="Enter suffix"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="preferredNickname">Nick Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.preferredNickname" id="preferredNickname"
+                                       class="form-control input-sm" placeholder="Enter nick name"
                                        ng-minlength="0"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="status">Status</label>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="memberType">Status</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.status" id="status"
-                                       class="form-control input-sm"
-                                       placeholder="Enter status Active, Inactive, or Shut-In" required
-                                       ng-minlength="3"/>
+                                <select  class="form-control" ng-model="ctrl.member.memberType" id="memberType">
+                                    <option value="">--Select a Status--</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Shut-In">Shut-In</option>
+                                    <option value="Deceased">Deceased</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -51,16 +74,6 @@
                                 <input type="text" ng-model="ctrl.member.gender" id="gender"
                                        class="gender form-control input-sm" placeholder="Enter M or F for gender" required
                                        ng-minlength="1" ng-maxlength="1"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="title">Title</label>
-                            <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.title" id="title" class="form-control input-sm"
-                                       placeholder="Enter title Mr, Mrs, or Miss" required ng-minlength="2"/>
                             </div>
                         </div>
                     </div>
@@ -83,6 +96,15 @@
                                 <input type="text" ng-model="ctrl.member.ethnicity" id="ethnicity"
                                        class="ethnicity form-control input-sm" placeholder="Enter ethnicity" required
                                        ng-minlength="1"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" >Household</label>
+                            <div class="col-md-7">
+                                <input readonly type="text"  ng-model="ctrl.member.householdName" id="householdName" class="form-control input-sm"/>
                             </div>
                         </div>
                     </div>
@@ -121,22 +143,21 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="state">State</label>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="stateProvince">State</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.state" id="state"
-                                       class="state form-control input-sm" placeholder="Enter state"/>
+                                <input type="text" ng-model="ctrl.member.stateProvince" id="stateProvince"
+                                       class="stateProvince form-control input-sm" placeholder="Enter state"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="zipCode">Zip Code</label>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="zip">Zip Code</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.zipCode" id="zipCode"
-                                       class="form-control input-sm" placeholder="Enter zip code."
-                                       ng-pattern="ctrl.onlyIntegers"/>
+                                <input type="number" ng-model="ctrl.member.zip" id="zip"
+                                       class="form-control input-sm" placeholder="Enter zip code." maxlength="5"/>
                             </div>
                         </div>
                     </div>
@@ -182,11 +203,42 @@
                     </div>
 
                     <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="churchBackground">Church Background</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.churchBackground" id="churchBackground"
+                                       class="form-control input-sm" placeholder="Church Background"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="maritalStatus">Marital Status</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.maritalStatus" id="maritalStatus"
                                        class="form-control input-sm" placeholder="Enter Marital Status"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Marriage Date</label>
+                            <div class="col-md-7">
+                                <input type="date" ng-model="ctrl.member.marriageDate" id="marriageDate" class="dob form-control input-sm"
+                                       placeholder="Enter marriage date."  ng-minlength="10"
+                                       ng-maxlength="10"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Spouse's Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.spousesName" id="spousesName"
+                                       class="form-control input-sm" placeholder="Enter Spouse's Name"/>
                             </div>
                         </div>
                     </div>
@@ -227,6 +279,26 @@
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.childrenNames" id="childrenNames"
                                        class="form-control input-sm" placeholder="Enter Children Names"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" >Parent Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.parentName1" id="parentName1"
+                                       class="form-control input-sm" placeholder="Parent Name"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Parent Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.parentName2" id="parentName2"
+                                       class="form-control input-sm" placeholder="Parent Name"/>
                             </div>
                         </div>
                     </div>

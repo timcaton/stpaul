@@ -88,6 +88,14 @@
                                        placeholder="Enter suffix"/>
                             </div>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label" for="dob">Date Of Birth</label>
+                            <div class="col-md-7">
+                                <input type="date" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
+                                       placeholder="Enter DOB"  ng-minlength="10"
+                                       ng-maxlength="10"/>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -115,14 +123,6 @@
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-md-4 control-label" for="dob">Date Of Birth</label>
-                            <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
-                                       placeholder="Enter DOB"  ng-minlength="10"
-                                       ng-maxlength="10"/>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
                             <label class="col-md-4 control-label" for="maritalStatus">Marital Status</label>
                             <div class="col-md-7">
                                 <select  class="form-control" ng-model="ctrl.member.maritalStatus" id="maritalStatus">
@@ -132,6 +132,24 @@
                                     <option value="Divorced">Divorced</option>
                                     <option value="Widowed">Widowed</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Marriage Date</label>
+                            <div class="col-md-7">
+                                <input type="date" ng-model="ctrl.member.marriageDate" id="marriageDate" class="dob form-control input-sm"
+                                       placeholder="Enter marriage date."  ng-minlength="10"
+                                       ng-maxlength="10"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Spouse's Name</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.member.spousesName" id="spousesName"
+                                       class="form-control input-sm" placeholder="Enter Spouse's Name"/>
                             </div>
                         </div>
                     </div>
