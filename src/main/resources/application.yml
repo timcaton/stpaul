@@ -4,7 +4,7 @@ server:
   contextPath: /StPaul
 ---
 spring:
-  profiles: local, default
+  profiles: local
 datasource:
   sampleapp:
     url: jdbc:h2:~/test
@@ -20,12 +20,12 @@ datasource:
       dialect: org.hibernate.dialect.H2Dialect
 ---
 spring:
-  profiles: prod
+  profiles: prod, default
 datasource:
   sampleapp:
-    url: jdbc:mysql://localhost:3306/websystique
-    username: myuser
-    password: mypassword
+    url: 192.168.56.101
+    username: stpuser
+    password: dbpassword
     driverClassName: com.mysql.jdbc.Driver
     defaultSchema:
     maxPoolSize: 20

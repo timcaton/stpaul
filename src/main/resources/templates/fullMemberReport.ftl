@@ -25,27 +25,27 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="title">Title</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.title" id="title" class="form-control input-sm"
+                                <input readonly type="text" ng-model="ctrl.member.title" id="title" class="form-control input-sm"
                                        placeholder="Enter title Mr, Mrs, or Miss" required ng-minlength="2"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" for="title">Suffix</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.suffix" id="suffix" class="form-control input-sm"
+                                <input readonly type="text" ng-model="ctrl.member.suffix" id="suffix" class="form-control input-sm"
                                        placeholder="Enter suffix"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" for="preferredNickname">Nick Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.preferredNickname" id="preferredNickname"
+                                <input readonly type="text" ng-model="ctrl.member.preferredNickname" id="preferredNickname"
                                        class="form-control input-sm" placeholder="Enter nick name"
                                        ng-minlength="0"/>
                             </div>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" for="memberType">Status</label>
                             <div class="col-md-7">
                                 <select  class="form-control" ng-model="ctrl.member.memberType" id="memberType">
@@ -71,7 +71,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="gender">Gender</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.gender" id="gender"
+                                <input readonly type="text" ng-model="ctrl.member.gender" id="gender"
                                        class="gender form-control input-sm" placeholder="Enter M or F for gender" required
                                        ng-minlength="1" ng-maxlength="1"/>
                             </div>
@@ -82,7 +82,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Birth</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
+                                <input readonly type="date" ng-model="ctrl.member.dob" id="dob" class="dob form-control input-sm"
                                        placeholder="Enter DOB in mm/dd/yyyy format" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -93,7 +93,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="ethnicity">Ethnicity</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.ethnicity" id="ethnicity"
+                                <input readonly type="text" ng-model="ctrl.member.ethnicity" id="ethnicity"
                                        class="ethnicity form-control input-sm" placeholder="Enter ethnicity" required
                                        ng-minlength="1"/>
                             </div>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" >Household</label>
                             <div class="col-md-7">
                                 <input readonly type="text"  ng-model="ctrl.member.householdName" id="householdName" class="form-control input-sm"/>
@@ -114,7 +114,7 @@
                             <label class="col-md-2 control-label" for="sequenceInHousehold">Sequence in
                                 Household</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.sequenceInHousehold" id="sequenceInHousehold"
+                                <input readonly type="text" ng-model="ctrl.member.sequenceInHousehold" id="sequenceInHousehold"
                                        class="form-control input-sm" placeholder="Enter sequence in household." required
                                        ng-pattern="ctrl.onlyIntegers"/>
                             </div>
@@ -126,7 +126,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Address</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.address" id="address"
+                                <input readonly type="text" ng-model="ctrl.member.address" id="address"
                                        class="address form-control input-sm" placeholder="Enter address"/>
                             </div>
                         </div>
@@ -136,27 +136,27 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="city">City</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.city" id="city" class="city form-control input-sm"
+                                <input readonly type="text" ng-model="ctrl.member.city" id="city" class="city form-control input-sm"
                                        placeholder="Enter city"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" for="stateProvince">State</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.stateProvince" id="stateProvince"
+                                <input readonly type="text" ng-model="ctrl.member.stateProvince" id="stateProvince"
                                        class="stateProvince form-control input-sm" placeholder="Enter state"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" for="zip">Zip Code</label>
                             <div class="col-md-7">
-                                <input type="number" ng-model="ctrl.member.zip" id="zip"
+                                <input readonly type="number" ng-model="ctrl.member.zip" id="zip"
                                        class="form-control input-sm" placeholder="Enter zip code." maxlength="5"/>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="email">Email</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.email" id="email"
+                                <input readonly type="text" ng-model="ctrl.member.email" id="email"
                                        class="email form-control input-sm" placeholder="Enter email"/>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="phoneNumber">Phone Number</label>
                             <div class="col-md-7">
-                                <input type="number" ng-model="ctrl.member.phoneNumber" id="phoneNumber"
+                                <input readonly type="number" ng-model="ctrl.member.phoneNumber" id="phoneNumber"
                                        class="form-control input-sm" placeholder="Enter Phone Number"/>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="receivedBy">Received By</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.receivedBy" id="receivedBy"
+                                <input readonly type="text" ng-model="ctrl.member.receivedBy" id="receivedBy"
                                        class="receivedBy form-control input-sm" placeholder="Enter Received By"/>
                             </div>
                         </div>
@@ -196,17 +196,17 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="removedBy">Removed By</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.removedBy" id="removedBy"
+                                <input readonly type="text" ng-model="ctrl.member.removedBy" id="removedBy"
                                        class="form-control input-sm" placeholder="Enter Removed By"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" for="churchBackground">Church Background</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.churchBackground" id="churchBackground"
+                                <input readonly type="text" ng-model="ctrl.member.churchBackground" id="churchBackground"
                                        class="form-control input-sm" placeholder="Church Background"/>
                             </div>
                         </div>
@@ -216,17 +216,17 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="maritalStatus">Marital Status</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.maritalStatus" id="maritalStatus"
+                                <input readonly type="text" ng-model="ctrl.member.maritalStatus" id="maritalStatus"
                                        class="form-control input-sm" placeholder="Enter Marital Status"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label">Marriage Date</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.member.marriageDate" id="marriageDate" class="dob form-control input-sm"
+                                <input readonly type="date" ng-model="ctrl.member.marriageDate" id="marriageDate" class="dob form-control input-sm"
                                        placeholder="Enter marriage date."  ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -234,10 +234,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label">Spouse's Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.spousesName" id="spousesName"
+                                <input readonly type="text" ng-model="ctrl.member.spousesName" id="spousesName"
                                        class="form-control input-sm" placeholder="Enter Spouse's Name"/>
                             </div>
                         </div>
@@ -247,7 +247,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="placeOfBirth">Place of Birth</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.placeOfBirth" id="placeOfBirth"
+                                <input readonly type="text" ng-model="ctrl.member.placeOfBirth" id="placeOfBirth"
                                        class="form-control input-sm" placeholder="Enter Place of Birth"/>
                             </div>
                         </div>
@@ -257,7 +257,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="numberOfChildren">Number Of Children</label>
                             <div class="col-md-7">
-                                <input type="number" ng-model="ctrl.member.numberOfChildren" id="numberOfChildren"
+                                <input readonly type="number" ng-model="ctrl.member.numberOfChildren" id="numberOfChildren"
                                        class="form-control input-sm" placeholder="Enter Number of Children"/>
                             </div>
                         </div>
@@ -267,7 +267,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="childrenLiving">Children Living</label>
                             <div class="col-md-7">
-                                <input type="number" ng-model="ctrl.member.childrenLiving" id="childrenLiving"
+                                <input readonly type="number" ng-model="ctrl.member.childrenLiving" id="childrenLiving"
                                        class="form-control input-sm" placeholder="Enter Children Living"/>
                             </div>
                         </div>
@@ -277,24 +277,24 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="childrenNames">Children Names</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.childrenNames" id="childrenNames"
+                                <input readonly type="text" ng-model="ctrl.member.childrenNames" id="childrenNames"
                                        class="form-control input-sm" placeholder="Enter Children Names"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label" >Parent Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.parentName1" id="parentName1"
+                                <input readonly type="text" ng-model="ctrl.member.parentName1" id="parentName1"
                                        class="form-control input-sm" placeholder="Parent Name"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="col-md-4 control-label">Parent Name</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="ctrl.member.parentName2" id="parentName2"
@@ -307,7 +307,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="memberInfo">Other Member Info</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.member.memberInfo" id="memberInfo"
+                                <input readonly type="text" ng-model="ctrl.member.memberInfo" id="memberInfo"
                                        class="form-control input-sm" placeholder="Other Member Info"/>
                             </div>
                         </div>
@@ -317,7 +317,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Baptism</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.baptism.baptismDate" id="dob" class="dob form-control input-sm"
+                                <input readonly type="date" ng-model="ctrl.baptism.baptismDate" id="dob" class="dob form-control input-sm"
                                        placeholder="Enter Date of Baptism" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -328,7 +328,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="ethnicity">Location of Baptism</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.baptismLocation" id="baptismLocation"
+                                <input readonly type="text" ng-model="ctrl.baptism.baptismLocation" id="baptismLocation"
                                        class="form-control input-sm" placeholder="Enter location of Baptism" required
                                        ng-minlength="1"/>
                             </div>
@@ -339,7 +339,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="email">Baptism Officiant</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.baptismOfficiant" id="baptismOfficiant"
+                                <input readonly type="text" ng-model="ctrl.baptism.baptismOfficiant" id="baptismOfficiant"
                                        class="form-control input-sm" placeholder="Enter Baptism Officiant"/>
                             </div>
                         </div>
@@ -349,7 +349,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Baptism Sponsor Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.sponsorName" id="sponsorName"
+                                <input readonly type="text" ng-model="ctrl.baptism.sponsorName" id="sponsorName"
                                        class="form-control input-sm" placeholder="Enter sponsor name"/>
                             </div>
                         </div>
@@ -359,7 +359,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Baptism Witness Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.witnessName" id="witnessName"
+                                <input readonly type="text" ng-model="ctrl.baptism.witnessName" id="witnessName"
                                        class="form-control input-sm" placeholder="Enter witness name"/>
                             </div>
                         </div>
@@ -369,7 +369,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">First Parent Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.parentName1" id="parentName1"
+                                <input readonly type="text" ng-model="ctrl.baptism.parentName1" id="parentName1"
                                        class="form-control input-sm" placeholder="Enter parent name"/>
                             </div>
                         </div>
@@ -379,7 +379,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="parentName2">Second Parent Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.parentName2" id="parentName2"
+                                <input readonly type="text" ng-model="ctrl.baptism.parentName2" id="parentName2"
                                        class="form-control input-sm" placeholder="Enter parent name"/>
                             </div>
                         </div>
@@ -389,7 +389,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Baptism Comment</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.baptism.baptismComment" id="baptismComment"
+                                <input readonly type="text" ng-model="ctrl.baptism.baptismComment" id="baptismComment"
                                        class="form-control input-sm" placeholder="Enter baptism comments"/>
                             </div>
                         </div>
@@ -399,7 +399,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Confirmation</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.confirmation.confirmationDate" id="confirmationDate" class="form-control input-sm"
+                                <input readonly type="date" ng-model="ctrl.confirmation.confirmationDate" id="confirmationDate" class="form-control input-sm"
                                        placeholder="Enter Date of Confirmation in mm/dd/yyyy format" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -410,7 +410,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="ethnicity">Location of Confirmation</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.confirmationLocation" id="confirmationLocation"
+                                <input readonly type="text" ng-model="ctrl.confirmation.confirmationLocation" id="confirmationLocation"
                                        class="form-control input-sm" placeholder="Enter location of Confirmation" required
                                        ng-minlength="1"/>
                             </div>
@@ -421,7 +421,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="email">Confirmation Officiant</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.confirmationOfficiant" id="confirmationOfficiant"
+                                <input readonly type="text" ng-model="ctrl.confirmation.confirmationOfficiant" id="confirmationOfficiant"
                                        class="form-control input-sm" placeholder="Enter Confirmation Officiant"/>
                             </div>
                         </div>
@@ -431,7 +431,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Confirmation Status</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.confirmationStatus" id="confirmationStatus"
+                                <input readonly type="text" ng-model="ctrl.confirmation.confirmationStatus" id="confirmationStatus"
                                        class="form-control input-sm" placeholder="Enter Confirmation Status"/>
                             </div>
                         </div>
@@ -441,7 +441,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Confirmation Verse</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.confirmationVerse" id="confirmationVerse"
+                                <input readonly type="text" ng-model="ctrl.confirmation.confirmationVerse" id="confirmationVerse"
                                        class="form-control input-sm" placeholder="Enter Confirmation Verse"/>
                             </div>
                         </div>
@@ -451,7 +451,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="parentName2">Examination Date</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.confirmation.examinationDate" id="examinationDate"
+                                <input readonly type="date" ng-model="ctrl.confirmation.examinationDate" id="examinationDate"
                                        class="form-control input-sm" placeholder="Enter Examination Date"/>
                             </div>
                         </div>
@@ -461,7 +461,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Confirmation Comment</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.confirmation.confirmationComment" id="confirmationComment"
+                                <input readonly type="text" ng-model="ctrl.confirmation.confirmationComment" id="confirmationComment"
                                        class="form-control input-sm" placeholder="Enter Confirmation Comment"/>
                             </div>
                         </div>
@@ -471,7 +471,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Funeral</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.funeral.funeralDate" id="dob" class="form-control input-sm"
+                                <input readonly type="date" ng-model="ctrl.funeral.funeralDate" id="dob" class="form-control input-sm"
                                        placeholder="Enter Date of Funeral" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -482,7 +482,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="dob">Date Of Death</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.funeral.deathDate" id="deathDate" class="form-control input-sm"
+                                <input readonly type="date" ng-model="ctrl.funeral.deathDate" id="deathDate" class="form-control input-sm"
                                        placeholder="Enter Date of Funeral" required ng-minlength="10"
                                        ng-maxlength="10"/>
                             </div>
@@ -493,7 +493,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="ethnicity">Place of Funeral</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.funeral.funeralPlace" id="funeralLocation"
+                                <input readonly type="text" ng-model="ctrl.funeral.funeralPlace" id="funeralLocation"
                                        class="form-control input-sm" placeholder="Enter place of Funeral" required
                                        ng-minlength="1"/>
                             </div>
@@ -504,7 +504,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="email">Funeral Officiant</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.funeral.funeralOfficiant" id="funeralOfficiant"
+                                <input readonly type="text" ng-model="ctrl.funeral.funeralOfficiant" id="funeralOfficiant"
                                        class="form-control input-sm" placeholder="Enter Funeral Officiant"/>
                             </div>
                         </div>
@@ -514,7 +514,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Burial Location</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.funeral.burialLocation" id="burialLocation"
+                                <input readonly type="text" ng-model="ctrl.funeral.burialLocation" id="burialLocation"
                                        class="form-control input-sm" placeholder="Enter Burial Location"/>
                             </div>
                         </div>
@@ -524,7 +524,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Pall Bearers</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.funeral.pallBearers" id="pallBearers"
+                                <input readonly type="text" ng-model="ctrl.funeral.pallBearers" id="pallBearers"
                                        class="form-control input-sm" placeholder="Enter Pall Bearers"/>
                             </div>
                         </div>
@@ -534,7 +534,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="address">Funeral Comment</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.funeral.funeralComment" id="funeralComment"
+                                <input readonly type="text" ng-model="ctrl.funeral.funeralComment" id="funeralComment"
                                        class="form-control input-sm" placeholder="Enter Funeral Comment"/>
                             </div>
                         </div>

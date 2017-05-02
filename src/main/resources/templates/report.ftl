@@ -24,6 +24,13 @@
                             </div>
                         </div>
                     </div>
+                    <#--<div class="row">-->
+                        <#--<div class="form-group col-md-12">-->
+                            <#--<div class="col-md-7">-->
+                                <#--<a href="#/BirthdayReportWholeYear.php">Birthday Report Whole Year</a>-->
+                            <#--</div>-->
+                        <#--</div>-->
+                    <#--</div>-->
             </div>
         </div>
     </div>
